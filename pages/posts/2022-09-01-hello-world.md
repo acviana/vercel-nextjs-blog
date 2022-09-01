@@ -1,6 +1,6 @@
 ---
 title: Hello, World!
-date: 2022/09/01
+date: 2022/08/31
 description: First Post!
 tag: 100-words
 author: acv
@@ -9,7 +9,7 @@ author: acv
 I'm starting this blog with some experiments with 100-word posts. 
 
 I'm not witty enough for Twitter, but I mostly don't want to argue with strangers. 
-Writing a newsletter was fun, but my tiny ideas keep exploring into multi-page essays. 
+Writing a newsletter was fun, but my tiny ideas keep exploding into multi-page essays. 
 The proofreading and editing buried me for weeks.
 
 So I'm trying for \~100 words at a time.
