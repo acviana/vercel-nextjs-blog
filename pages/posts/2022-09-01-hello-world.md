@@ -2,7 +2,7 @@
 title: Hello, World!
 date: 2022/08/31
 description: First Post!
-tag: 100-words
+tag: 100-words, meta
 author: acv
 ---
 
