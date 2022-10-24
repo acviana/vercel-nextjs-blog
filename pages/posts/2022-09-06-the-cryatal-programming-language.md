@@ -2,7 +2,7 @@
 title: The Crystal Programming Language
 date: 2022/09/06
 description: A quick peek at at the Crystal programming language
-tag: 100-words, dev, crystal
+tag: 100-words, dev, crystal, programming-languages
 author: acv
 ---
 
