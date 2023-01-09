@@ -1,6 +1,6 @@
 ---
 title: I Love Computers
-date: 01/01/2023
+date: 2023/01/01
 description: Working on computers for fun ... and not for profit
 tag: dev, 250-words
 author: acv

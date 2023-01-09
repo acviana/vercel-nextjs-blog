@@ -1,6 +1,6 @@
 ---
 title: SQLite and DuckDB
-date: 09/05/2022
+date: 2022/09/05
 description: Diving into a recent paper on running OLAP workloads on my favorite database
 tag: 100-words, dev, sqlite, duckdb, papers
 author: acv
