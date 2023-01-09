@@ -1,6 +1,6 @@
 ---
 title: One Day Of Advent Of Code
-date: 01/07/2023
+date: 2023/07/01
 description: Working on Advent of Code and learning to take only what you need from something
 tag: dev, 500-words, advent-of-code
 author: acv
