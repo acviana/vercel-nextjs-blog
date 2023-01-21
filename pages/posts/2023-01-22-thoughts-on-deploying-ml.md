@@ -6,22 +6,31 @@ tag: dev, machine-learning, artifical-intelligence
 author: acv
 ---
 
-I have a friend who wanted to do some interview prep for an ML engineering management role. I ended up writing quite a bit of notes as part of my prep work. When I was done I realized what I had was coherent enough to share as a post.
+Recently, I was helping a friend with some interview prep for an ML engineering management role. 
+I have enough adjacent ML Ops knowledge to help out my friend who is a more of a software engineering generalist.
+But ML Ops us still enough outside of my day-to-day that I wanted to do some prep work to double-check my understanding.
+When I was done I realized my notes  coherent enough to share as a post.
 
 There are two parts to this post:
 
-1. My own (highly opinionated) thoughts on the barriers to getting analyst driven ML work into production.
-2. An exchange I had with Chat GTP-3 to do some background research on deploying ML to AWS. I'm including this since it's both useful and interesting example of how these emerging technologies can be used.
+1. My own (highly opinionated) thoughts on the barriers to getting analyst or data scientist driven ML work into production.
+2. An exchange I had with Chat GTP-3 to do some background research on deploying ML to AWS. I'm including this since it's both useful and interesting use-case for emerging AI technologies.
 
-## Context
+## Background
 
-I have a friend who was interviewing for an engineering leadership role on a team tasked with getting ML models into production. The models are created by a separate data science team. The current project state seems to be analysts developing models in Jupyter notebooks on their own laptops with no real flow into production yet.
+My friend was interviewing for an engineering leadership role on a team tasked with getting ML models into production.
+The models are created by a separate data science / analyst team.
+The current project state seems to be analysts developing models in Jupyter notebooks on their own laptops with no real flow into production yet.
 
-## Personal Thoughts
+## Personal Perspective
 
-In my opinion, you’re going to need to build out a dedicated ML Engineering team; as opposed to a Data Science or Engineering team. This team will focus not only on getting Ml projects into production but, more importantly, work with your Data Analysts/Scientists to create a framework that Data folks can develop and test against so that they create ML models that are usable in production in addition to being correct.
+In my opinion, getting ML models into production requires a dedicated ML Engineering team.
+Neither a "standard" Data Science or Engineering team is going to have quite the right mix of cross-domain skills.
+An ML Ops team will focus not only on getting Ml projects into production but, more importantly, work with your Data Analysts/Scientists to create a framework that data folks can develop and test against so that they create ML models that are usable in production in addition to being correct.
 
-As always the major problems in doing this are going to be organizational and cultural. There is plenty of room for growth in the ML platform and deployment space but there is more than enough established tooling there to deploy (what I’m assuming are) fairly standard ML models to production. Instead, I think you’re going to find a pretty big skill and cultural gap between what the analysts are producing and what Software Engineers even think of as code, let alone production quality code with best practices.
+I see the major problems here and being primarily organizational and cultural. ML platforms have room to grow but there have been paved paths to deploy basic ML models on every major platform for several years now. Instead, I think the barriers are going to be the knowledge and cultural gaps between what the analysts are producing and what most Software Engineers even think of as code, let alone production quality code with best practices. 
+
+This in not a knock on data analysts inability to code or software engineers inability to understand ML algorithms and data science.
 
 Jupyter Notebooks are usually completely unfamiliar to Software Engineers who typically do not need the same level of exploration and interactivity that notebooks enable and as a result are unfamiliar with just how different software development can be in that environment. For example, all “cells” in a notebook share a global scope but can be executed individually. As a result, instead of defining reusable functions data practitioners will just use “cells” as proxies for functions, editing and rerunning cells to overwrite variables into the global notebook scope. I can’t emphasize enough that most data folks there are not “hack” this is what “software development” looks like. On one hand they tend to lack exposure to software best practices, it’s not unusual to find a data scientist who is uncomfortable in a text editor, it also typically doesn’t matter in their role. Their job is to produce models that work.
 
