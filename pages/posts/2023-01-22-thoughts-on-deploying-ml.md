@@ -2,13 +2,13 @@
 title: Notes on Getting ML Models into Production
 date: 2023/01/21
 description: Some notes on the challenges of getting ML models out of local environments
-tag: dev, machine-learning, artifical-intelligence
+tag: dev, machine-learning, artifical-intelligence, data-science, software-engineering
 author: acv
 ---
 
 Recently, I was helping a friend with some interview prep for an ML engineering management role. 
-I have enough adjacent ML Ops knowledge to help out my friend who is a more of a software engineering generalist.
-But ML Ops us still enough outside of my day-to-day that I wanted to do some prep work to double-check my understanding.
+I have limited direct experience running ML models in production but my friend is more of a software engineering generalist, so in this case I knew enough to help out.
+Because ML Ops is outside of my day-to-day work I wanted to do some prep work to double-check my knowledge.
 When I was done I realized my notes  coherent enough to share as a post.
 
 There are two parts to this post:
@@ -16,13 +16,28 @@ There are two parts to this post:
 1. My own (highly opinionated) thoughts on the barriers to getting analyst or data scientist driven ML work into production.
 2. An exchange I had with Chat GTP-3 to do some background research on deploying ML to AWS. I'm including this since it's both useful and interesting use-case for emerging AI technologies.
 
+My friend got an job offer - 100% on his own metris in my opinion. But he did say our chat and my notes helped him understand the challenges in the space better.
+
 ## Background
 
 My friend was interviewing for an engineering leadership role on a team tasked with getting ML models into production.
-The models are created by a separate data science / analyst team.
+The models are created by a separate data science / analyst team (I'll use the terms somewhat interchangeably here).
 The current project state seems to be analysts developing models in Jupyter notebooks on their own laptops with no real flow into production yet.
 
-## Personal Perspective
+## Engineering And Data Science
+
+I think the scenario my friend described is a common one for tech companies on the order of several hundred employees and growing towards 1,000 folks. 
+You've usually got an engineering org that's starting to mature in process and code standards, usually as reaction to paying for the sins (tech debt) of the org's early days. 
+
+At the same time that you've got an data science or analytics org that starting to expand its scope and impact. 
+Usually the business's goals and metrics have become more stable and there's a few years of data to work with - ideal conditions to start experimenting with ML models. 
+
+And when these Ml models start producing valuable results, results that would be useful in production, it requires engineering and analysts to work together in an entirely new way. From a distance, it looks like the problem to be solved is to just figure out the right architecture to shove the models, high-five, and call it a day. If that's how this plays out for you, I'm happy for you. But often I think there's going to be a pretty big TODO and this is where ML engineering, as I understand it, can step in and bridge the gap.
+
+## ML Engineering
+
+I'm going to use "ML engineering" as to describe the work to act as a bridge between data science and engineering workflows. 
+I have no strong feelings on the actual title and depending on the org this work could be done by a data engineer, software engineer, devops, or data scientist.
 
 In my opinion, getting ML models into production requires a dedicated ML Engineering team.
 Neither a "standard" Data Science or Engineering team is going to have quite the right mix of cross-domain skills.
