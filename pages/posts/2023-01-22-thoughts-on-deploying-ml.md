@@ -1,51 +1,62 @@
 ---
-title: Notes on Getting ML Models into Production
-date: 2023/01/21
+title: Notes on ML Engineering for Software Engineers (with some help from ChatGPT)
+date: 2023/01/29
 description: Some notes on the challenges of getting ML models out of local environments
 tag: dev, machine-learning, artifical-intelligence, data-science, software-engineering
 author: acv
 ---
 
-Recently, I was helping a friend with some interview prep for an ML engineering management role. 
+Recently, I was helping a friend with some interview prep for an engineering management role that ended up being an ML engineering role. 
 I have limited direct experience running ML models in production but my friend is more of a software engineering generalist, so in this case I knew enough to help out.
 Because ML Ops is outside of my day-to-day work I wanted to do some prep work to double-check my knowledge.
-When I was done I realized my notes  coherent enough to share as a post.
+When I was done I realized my notes were coherent enough to share as a post.
 
 There are two parts to this post:
 
 1. My own (highly opinionated) thoughts on the barriers to getting analyst or data scientist driven ML work into production.
 2. An exchange I had with Chat GTP-3 to do some background research on deploying ML to AWS. I'm including this since it's both useful and interesting use-case for emerging AI technologies.
 
-My friend got an job offer - 100% on his own metris in my opinion. But he did say our chat and my notes helped him understand the challenges in the space better.
+My friend got and accepted an job offer for this role - 100% on his own merits in my opinion. But he did say our chat and my notes helped him understand the challenges in the space better.
 
 ## Background
 
-My friend was interviewing for an engineering leadership role on a team tasked with getting ML models into production.
+The position my friend interviewed for is focused on getting ML models into production.
 The models are created by a separate data science / analyst team (I'll use the terms somewhat interchangeably here).
 The current project state seems to be analysts developing models in Jupyter notebooks on their own laptops with no real flow into production yet.
 
 ## Engineering And Data Science
 
 I think the scenario my friend described is a common one for tech companies on the order of several hundred employees and growing towards 1,000 folks. 
-You've usually got an engineering org that's starting to mature in process and code standards, usually as reaction to paying for the sins (tech debt) of the org's early days. 
+From what I've seen and heard about at this scale your engineering org is starting to mature in process and code standards, usually as reaction to paying for the sins (tech debt) of the org's early days. 
 
-At the same time that you've got an data science or analytics org that starting to expand its scope and impact. 
-Usually the business's goals and metrics have become more stable and there's a few years of data to work with - ideal conditions to start experimenting with ML models. 
+At the same time you've usually got an data science or analytics org that starting to expand its scope and impact after some initial wins. 
+At the same time the business's goals and metrics have become more stable and there's a few years of data to work with - ideal conditions to start experimenting with ML models. 
 
-And when these Ml models start producing valuable results, results that would be useful in production, it requires engineering and analysts to work together in an entirely new way. From a distance, it looks like the problem to be solved is to just figure out the right architecture to shove the models, high-five, and call it a day. If that's how this plays out for you, I'm happy for you. But often I think there's going to be a pretty big TODO and this is where ML engineering, as I understand it, can step in and bridge the gap.
+So when these conditions come together you've ML models starting produce valuable results for the business and an Engineering org that's starting have more opinions on how to get code into production. These conditions are going to require engineers and analysts to work together in an entirely new way. 
+
+From a distance, it looks like the problem to be solved is merely a matter of picking the right architecture to shove the models into, high-five, and call it a day. And if that's how this plays out in your org, I'm happy for you. But often I think there is are gaps to be bridged between data science and engineering. These gaps are bi-directional and include domain knowledge, tools, processes, and requirements. 
 
 ## ML Engineering
 
-I'm going to use "ML engineering" as to describe the work to act as a bridge between data science and engineering workflows. 
-I have no strong feelings on the actual title and depending on the org this work could be done by a data engineer, software engineer, devops, or data scientist.
+I'm going to use the term "ML engineering" to describe the work of building a bridge between data science and engineering workflows. 
+I think I first heard this term used by TODO but I'm not sure who is the originator of the term or if I'm even using it exactly the same way.
+Personally, I have no strong feelings on the actual title and depending on the org this work could be done by a data engineer, software engineer, devops, or data scientist.
 
-In my opinion, getting ML models into production requires a dedicated ML Engineering team.
-Neither a "standard" Data Science or Engineering team is going to have quite the right mix of cross-domain skills.
-An ML Ops team will focus not only on getting Ml projects into production but, more importantly, work with your Data Analysts/Scientists to create a framework that data folks can develop and test against so that they create ML models that are usable in production in addition to being correct.
+In my opinion, getting ML models into production requires a dedicated ML Engineering function.
+I would not necessarily expect either a data science or engineering team to have quite the right mix of cross-domain skills to pull this off on their own.
+I know plenty of individual exceptions to this, engineers deeply interested in data science and data scientists fluent in DevOps. 
+But those folks are exceptional in my opinion.
+The level of interdisciplinary knowledge required to do production-level work in an adjacent space is not a requirement to do strong work in either role. Relying on find folks who have deep cross-over skills like this is a great to maximize a team's impact of for a year or so but is not a scalable strategy.
+
+An ML Engineering team will focus on getting ML projects into production in a ways that meets that org's engineering standards. But, more importantly, they work with your Data Analysts/Scientists to create a framework to facilitate a ML workflow. This is a framework where data folks can quickly develop and test ML models that can be pushed to production with enough testing for validation and sand-boxing for exploration.
 
 I see the major problems here and being primarily organizational and cultural. ML platforms have room to grow but there have been paved paths to deploy basic ML models on every major platform for several years now. Instead, I think the barriers are going to be the knowledge and cultural gaps between what the analysts are producing and what most Software Engineers even think of as code, let alone production quality code with best practices. 
 
 This in not a knock on data analysts inability to code or software engineers inability to understand ML algorithms and data science.
+
+## Notebooks
+
+Notebooks are a great illustration at the kinds of cultural gaps you can find between these two organizations.
 
 Jupyter Notebooks are usually completely unfamiliar to Software Engineers who typically do not need the same level of exploration and interactivity that notebooks enable and as a result are unfamiliar with just how different software development can be in that environment. For example, all “cells” in a notebook share a global scope but can be executed individually. As a result, instead of defining reusable functions data practitioners will just use “cells” as proxies for functions, editing and rerunning cells to overwrite variables into the global notebook scope. I can’t emphasize enough that most data folks there are not “hack” this is what “software development” looks like. On one hand they tend to lack exposure to software best practices, it’s not unusual to find a data scientist who is uncomfortable in a text editor, it also typically doesn’t matter in their role. Their job is to produce models that work.
 
