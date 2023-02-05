@@ -6,9 +6,9 @@ tag: dev, machine-learning, artifical-intelligence, data-science, software-engin
 author: acv
 ---
 
-Recently, I was helping a friend with some interview prep. He was interviewing for an engineering management role that ended up being an ML engineering role. 
-I have limited direct experience running ML models in production but my friend is more of a software engineering generalist, so in this case I knew enough to help out.
-Because ML Ops is outside of my day-to-day work I wanted to do some prep work to double-check my knowledge.
+Recently, I was helping a friend with some interview prep. He was interviewing for an engineering management role that ended up having an emphasis on ML Ops. 
+While I have limited direct experience running ML models in production I knew enough to be helpful to my friend who is more of a software engineering generalist.
+Because ML Ops is outside of my day-to-day work I wanted to do some prep work to double-check my understanding of current best practices.
 When I was done, I realized my notes were coherent enough clean up and share as a post.
 
 There are two parts to this post:
@@ -24,39 +24,38 @@ The position my friend interviewed for is focused on getting ML models into prod
 The models are created by a separate data science / analyst team (I'll use the terms somewhat interchangeably here).
 The current project state seems to be analysts developing models in Jupyter notebooks on their own laptops with no real flow into production yet.
 
-## Engineering And Analytics
+## Engineering And Analytics At Mid-Sized Companies
+
+[Needs a topic sentence]
 
 I think the scenario my friend described is a common one for tech companies on the order of several hundred employees and growing towards 1,000 folks. 
-From what I've seen and heard, this is about the scale at which your engineering org is starting to mature in process and code standards, usually as reaction to paying for the sins (tech debt) of the org's early days. 
+From what I've seen and heard, this is about the scale at which your engineering org is starting to mature in process and code standards.
+This is usually at least in part a reaction to paying for the sins (tech debt) of the org's early days.
 
 At this same scale, you've usually got an data science or analytics org that's starting to expand its scope and impact after some initial wins. 
 Simultaneously, the business's goals and metrics have become more stable and there's a few years of training data to draw from. 
-These are potentially ideal conditions to start experimenting with ML models. 
+This combination of business direction and training data are potentially ideal conditions to start experimenting with ML models (though often there's lowering hanging fruit). 
 
 Looking at the big picture, you've ML models starting produce valuable results for the business and an Engineering org that's starting have more opinions on how to get code into production. Bridging this gap is going to require engineers and analysts to work together to build and deploy code. 
 
 ## The Tools Aren't The Problem
 
-From a distance, it looks like the problem to be solved is merely a matter of picking the right architecture to shove the models into, then everyone can high-five and call it a day. And that's wonderful if that's what happens.
-But often, I think the real works is in bridging bi-directional gaps between these two orgs. These gaps include domain knowledge, tools, processes, and requirements. 
 
-I see the major problems here and being primarily organizational and cultural. 
+I see the major work to be done here as being primarily organizational and cultural.
 ML platforms have room to grow but there have been paved paths to deploy basic ML models on every major platform for several years now. 
 Instead, I think the barriers are going to be the knowledge and cultural gaps between what the analysts are producing and what most Software Engineers even think of as code, let alone production quality code with best practices. 
 
 ## ML Engineering
 
-I'm going to use the term "ML engineering" to describe the work of building a bridge between data science and engineering workflows. 
-I think I first heard this term used by TODO but I'm not sure who is the originator of the term or if I'm even using it exactly the same way.
-I think this work could also be described as ML Ops.
-Personally, I have no strong feelings on the actual title and depending on the org this work could be done by a data engineer, software engineer, devops, or data scientist.
+I'm going to use the term "ML Engineering" to describe the work that bridges these two teams; though I think ML Ops works just as well and I don't have particularly strong feelings about the title.
+But, I do have strong feelings that this is a dedicated role.
 
-In my opinion, getting ML models into production requires a dedicated ML Engineering function.
 I would not necessarily expect either a data science or engineering team to have quite the right mix of cross-domain skills to pull this off on their own.
-I know plenty of individual exceptions to this, engineers deeply interested in data science and data scientists fluent in DevOps. 
+I know plenty of individual exceptions to this; engineers who are deeply interested in data science and data scientists fluent in DevOps best practices. 
+
 But those folks are exceptional in my opinion.
 The level of interdisciplinary knowledge required to do production-level work in an adjacent space is not a requirement to do strong work in either role. 
-If you can find folks who have deep cross-over skills like this it's a great way to maximize a team's impact of for about a year or so.
+If you can find folks who have deep cross-over skills like this it's a great way to maximize a team's impact for about a year or so.
 But such folks are rare and are more of a super-charger than a scalable strategy.
 
 An ML Engineering team will focus on getting ML projects into production in a ways that meets that org's engineering standards. 
