@@ -19,9 +19,10 @@ So, as a proof-of-concept, here is the definition a subspace, of a core concept 
 
 ### Subspaces
 
-For a vector space $V$ over a field $F$ (nominally either $\mathbb{R}$ the real numbers or $\mathbb{C}$ the complex numbers), the subset $U \subset V$ is said to be a _subspace_ of V if and only if ($\Leftrightarrow$) the following 3 conditions are met:
+For a vector space $V$ over a field $F$ (nominally either $\mathbb{R}$ the real numbers or $\mathbb{C}$ the complex numbers), the subset $U \subseteq V$ is said to be a _subspace_ of V if and only if ($\Leftrightarrow$) the following 3 conditions are met:
 
  - **Additive Identity:** The additive identity $0 \in V$ is also $\in U$. That is, $0 \in U \cap V$, where $0$ is an element in $V$ such that $0 + x = x + 0 = x$ for all $x \in V$.
  -  **Closure Under Addition:** For any $x,y \in U$ we also have $x+y \in U$.
- - **Closure Under Scalar Mutliplication:** For $a \in F$ and $x \in U$ we have $ax \in U$.
+ - **Closure Under Scalar Multiplication:** For $a \in F$ and $x \in U$ we have $ax \in U$.
 
+**Update 2023-06-25:** Fixed the definition of a subspace to include the trivial case $U = V$ i.e. $U \subseteq V$ instead of $U \subset V$. Thanks Dad :)
