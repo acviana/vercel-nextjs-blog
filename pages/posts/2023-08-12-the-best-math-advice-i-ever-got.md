@@ -1,5 +1,6 @@
+
 ---
-title: The Best Math Advide I Ever Got
+title: The Best Math Advice I Ever Got
 date: 2023/08/12
 description: On turning hieroglyphics into pictures
 tag: math
