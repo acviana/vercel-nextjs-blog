@@ -1,4 +1,3 @@
-
 ---
 title: The Best Math Advice I Ever Got
 date: 2023/08/12
