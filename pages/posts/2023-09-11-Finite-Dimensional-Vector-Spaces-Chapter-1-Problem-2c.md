@@ -6,7 +6,6 @@ date: 2023-09-11
 tags:
   - blog
   - math
-status: in-progress
 ---
 
 I'm 9 months into my self-directed study of math and I wanted to start writing about some of the problems I enjoyed working on. First up is problem 2(c) from [Paul Halmos's](https://en.wikipedia.org/wiki/Paul_Halmos) foundational 1942 text *"Finite Dimensional Vector Spaces"*. 
