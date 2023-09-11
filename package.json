@@ -12,8 +12,8 @@
   "dependencies": {
     "gray-matter": "^4.0.2",
     "next": "^13.4.0",
-    "nextra": "^2.11.1",
-    "nextra-theme-blog": "^2.11.1",
+    "nextra": "^2.12.1",
+    "nextra-theme-blog": "^2.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rss": "^1.2.2"
