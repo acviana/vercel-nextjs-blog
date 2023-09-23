@@ -2,15 +2,13 @@
 title: Finite Dimensiona Vector Spaces Ch. 1 Problem 2(c)
 description: Working through problem 2(c) from chapter 1 of Halmos's "Finite Dimensional Vector Spaces"
 author: acv
-date: 2023-09-11
-tags:
-  - blog
-  - math
+date: 2023-09-23
+tag: blog, math
 ---
 
 I'm 9 months into my self-directed study of math and I wanted to start writing about some of the problems I enjoyed working on. First up is problem 2(c) from [Paul Halmos's](https://en.wikipedia.org/wiki/Paul_Halmos) foundational 1942 text *"Finite Dimensional Vector Spaces"*. 
 
-I was excited by this problem because of the technique I had to use to solve it. It's the first time I've been given a problem that can't be solved in the original domain, but can be solved the mapping your set to a new domain with different properties. It's a technique I've seen before, but never one I've been asked to implement myself.
+I was excited by this problem because of the technique I had to use to solve it. It's the first to me I've been given a problem that can't be solved in the original domain, but can be solved the mapping your set to a new domain with different properties. It's a technique I've seen before, but never one I've been asked to implement myself.
 ## The Setup
 
 The first two parts of this problem are quick to verify and on-par with what you would see in any other introductory abstract algebra text covering [fields](https://en.wikipedia.org/wiki/Field_(mathematics). 
