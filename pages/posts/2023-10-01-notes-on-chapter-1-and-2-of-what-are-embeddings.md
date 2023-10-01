@@ -1,7 +1,7 @@
 ---
 title: Notes on Chapter 1 and 2 of What are Embeddings
-description: "Notes on Chapter 1 and 2 of Vicki Boykis's \"What Are Embeddings\" paper"
-date: 2023/10/01
+description: Notes on Chapter 1 and 2 of Vicki Boykis's "What Are Embeddings" paper
+date: 2023-10-01
 author: acv
 tag: blog, machine-learning, ai, papers, linear-algebra
 ---
