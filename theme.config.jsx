@@ -1,6 +1,5 @@
 export default {
-  // footer: <p>tes testMIT 2023 © Nextra.</p>,
-  // footer: <p xmlns:cc="http://creativecommons.org/ns#" >This work by <span property="cc:attributionName">Alex C. Viana</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"></img><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></img><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"></img><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></img></a></p>,
+  // Make this a seperate react component and import it instead
   footer: 
     <span {...{'xmlns:cc': "http://creativecommons.org/ns#"}}>
       <div style={{height: '1px', backgroundColor: 'white'}}>
@@ -74,7 +73,8 @@ export default {
   ),
   readMore: 'Read More →',
   postFooter: null,
-  darkMode: false,
+  darkMode: true,
+  // Remove this from the nav 
   navs: [
     {
       url: 'https://github.com/shuding/nextra',
