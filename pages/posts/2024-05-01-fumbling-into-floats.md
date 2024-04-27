@@ -6,16 +6,16 @@ tag: TODO
 author: acv
 ---
 
-## What Do I Mean?
+## What Do You Mean?
 
-Recently, I was working on a little side project where I needed to implement a formula for an [incremental mean](https://math.stackexchange.com/a/106720) in Python. I ended up with this:
+Recently, I was working on a [side project](https://github.com/acviana/multiarmed-bandit-simulation/tree/main) that requires iteratively appending to a series of numbers and updating the mean. It turns out there's a computationally efficient way to do this by implementing an [incremental mean](https://math.stackexchange.com/a/106720) instead of just recalculating the mean of the whole series. Here what that looks like in Python:
 
 ```python
 def incremental_mean(mean: float, observation: float, n: int) -> float:
     return mean + ((observation - mean) / n)
 ```
 
-I then used it to calculate a "running mean" of a list of numbers, meaning the $n$th mean in my output list was the mean of the first $n$ numbers in the input list. I then compared the result of my loop using my incremental mean against one using the `mean` function from the Python Standard Library.
+The benefit of using this incremental mean formula for this is that each incremental calculation is $\mathcal{O}(1)$ while calculating the mean of the entire series would be $\mathcal{O}(n)$. To see this I benchmarked two running means over 1000 randomly generated floats, one using my incremental mean and one using the `statistic.mean` function from the Python Standard Library.
 
 ```python
 %%timeit
@@ -27,19 +27,33 @@ I then used it to calculate a "running mean" of a list of numbers, meaning the $
 rolling_incremental_mean(input_list)
 513 µs ± 28.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 ```
-Fantastic, nearly 1000x faster! Great, we're done (we were not done).
+Fantastic, nearly 1000x faster! Great, we're done. (we were not done).
 
 ## Small Detail, Is It Right?
 
 Everything seemed to be working just fine in the larger project with the faster incremental formula. But while I was debugging something else I decided to return to this function just to double-check. I compared the results between the standard library and my output and the `assert` failed.
 
-No surprise probably a typo! I looped over the two numbers and checked them all pairwise, it made it through a few dozen numbers and before failing. That's even weirder, shouldn't it always be right or wrong? 
+_No surprise probably a typo!_ 
 
-I tried plotting the residuals between the two methods and saw this
+I looped over the two numbers and checked them all pairwise, it made it through a few dozen numbers and before failing.
+
+_That's even weirder, shouldn't it always be right or wrong?_ 
+
+I tried plotting the residuals (difference) between the two outputs and got this graph
 
 ![incremental mean residuals](../../public/images/incremental-mean-residuals.png)
 
-That's weird ... why are the errors quantized? Oh right ... floats. The errors were on the order of $1e^{-15}$. There must be some rounding approximation in the standard library `mean` function or something. 
+_That's weird ... why are the errors quantized? Oh right - floats._ 
+
+## What the Float
+
+Here's what I thought was going on, to first order.
+
+Numbers are infinite but computers are decidedly finite which means any computational (physical) representation of the number line is going to have certain constraints. The most common representation computers use are called floating points, or "floats". This represents every number as some real number of finite length raised to an exponent like this $123.456e^{10}$. Now here's where the constraints come in. Because the _length_ of the prefix to the exponent (also called the "mantissa") is limited, it means we can only construct a finite number of mantissas _per exponent_. And that means that as the exponents get smaller, the numbers we can represent get closer and closer. The exponents themselves have a limited range (much less than the range of the mantissa) which means at some point we get to the smallest interval we can express in our floating point system.  
+
+I'm hand-waiving away some details here but that's what went through my mind the first time I saw the graph of my residuals. I noticed the errors were on the order of $1e^{-15}$, which is effectively zero for my purposes, and figured I must have hit the floating point limit. I assumed there must be some rounding approximation in the standard library `statistics.mean` function or something.
+
+Regardless of the details, my function was correct so I could just stop there. (I did not stop there)
 
 ## Down the Rabbit Hole
 
