@@ -15,7 +15,7 @@ def incremental_mean(mean: float, observation: float, n: int) -> float:
     return mean + ((observation - mean) / n)
 ```
 
-The benefit of using this incremental mean formula for this is that each incremental calculation is $\mathcal{O}(1)$ while calculating the mean of the entire series would be $\mathcal{O}(n)$. To see this I benchmarked this with a series of 1000 randomly generated floats, once using my incremental mean and once using the `statistic.mean` function from the Python Standard Library.
+The benefit of using this incremental mean formula for this is that each incremental calculation is $\mathcal{O}(1)$ while calculating the mean of the entire series would be $\mathcal{O}(n)$. To see this I benchmarked this with a series of 1000 randomly generated floats, once using my incremental mean formula and once using the `statistics.mean` function from the Python Standard Library.
 
 ```python
 %%timeit
@@ -33,7 +33,7 @@ _We were not done_
 
 ## What the Float?!?
 
-Everything seemed to be working fine in the larger project with the faster incremental formula so I moved on. But, while I was debugging a differen error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm they're the same and it failed.
+Everything seemed to be working fine in the larger project with the faster incremental formula so I moved on. But, while I was debugging a different error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm they're the same and it failed.
 
 _No surprise, probably a typo!_ 
 
@@ -51,7 +51,7 @@ _That's weird ... why are the errors quantized? Shouldn't they be - oh right, fl
 
 Here's what I thought was going on, to first order.
 
-Numbers are infinite but computers are decidedly finite. This means any computational (physical) representation of the number line is going to have certain constraints. The most common representation computers use are called floating points, or "floats". This represents every number as some real number of finite length raised to an exponent like this $123.456e^{10}$. 
+Numbers are infinite but computers are decidedly finite. This means any computational (physical) representation of the number line is going to have certain constraints. The most common representation computers use are called [floating-point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic), or "floats". This represents every number as some real number of finite length raised to an exponent like this $123.456e^{10}$. 
 
 Now here's where the constraints come in. Because the number of digits in the prefix to the exponent (also called the "mantissa") is limited, it means we can only construct a finite number of mantissas _per exponent_. That means that as the exponents get smaller, the numbers we can represent get closer and closer. The exponents themselves have a limited range (much less than the range of the mantissa) which means at some point we get to the smallest interval we can express in our floating point system.  
 
@@ -151,10 +151,11 @@ _We're not stopping._
 
 ## Epsilon Families
 
-If you squint at the list of distinct residuals you might notice a pattern that many of them are offset by the `float_info.epsilon` value. Actually, it looks like there are two "families" of residuals, each coming at intervals of epsilon, but with one family offset but 1/2 epsilon. This plot helps show that. 
+If you squint at the list of distinct residuals you might notice a pattern that many of them are offset by the `float_info.epsilon` value. Actually, it looks like there are two "families" of residuals, each coming at intervals of `epsilon`, but with one family offset but 1/2 `epsilon`. This plot helps show that. 
 
 ![Floating Point Residual by Epsilon Family](../../public/images/floating-point-residuals-by-epsilon-family.png)
 
 The families are color coded in both figures. On the top they all appear on the same number line. On the bottom figure they are separated for clarity. 
 
 There are still two points that don't fit into that scheme.
+
