@@ -2,13 +2,13 @@
 title: Fumbling Into Floats
 date: 2024-05-01
 description: Down a rabbit hole of floating point numbers
-tag: TODO
+tag: coding, math
 author: acv
 ---
 
 ## What Do You Mean?
 
-Recently, I was working on a [side project](https://github.com/acviana/multiarmed-bandit-simulation/tree/main) that requires iteratively appending to a series of numbers and updating the mean. It turns out there's a computationally efficient way to do this by implementing an [incremental mean](https://math.stackexchange.com/a/106720) instead of just recalculating the mean of the whole series. Here what that looks like in Python:
+Recently, I was working on a side project writing a [multi-armed bandit simulator](https://github.com/acviana/multiarmed-bandit-simulation/tree/main). That requires iteratively appending to a series of numbers and updating the mean. It turns out there's a computationally efficient way to do this by implementing an [incremental mean](https://math.stackexchange.com/a/106720) instead of just recalculating the mean of the whole series. Here what that looks like in Python:
 
 ```python
 def incremental_mean(mean: float, observation: float, n: int) -> float:
@@ -27,15 +27,17 @@ The benefit of using this incremental mean formula for this is that each increme
 rolling_incremental_mean(input_list)
 513 µs ± 28.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 ```
-Fantastic, nearly 1000x faster! Great, we're done. (we were not done).
+Fantastic, nearly 1000x faster! Great, we're done. 
 
-## Small Detail, Is It Right?
+(we were not done)
 
-Everything seemed to be working just fine in the larger project with the faster incremental formula. But while I was debugging something else I decided to return to this function just to double-check. I compared the results between the standard library and my output and the `assert` failed.
+## What the Float?!?
 
-_No surprise probably a typo!_ 
+Everything seemed to be working just fine in the larger project with the faster incremental formula. But while I was debugging something else I decided to return to this function just to double-check. I compared the results from a running average over 1000 numbers using standard library and incremental function and the `assert` failed.
 
-I looped over the two numbers and checked them all pairwise, it made it through a few dozen numbers and before failing.
+_No surprise, probably a typo!_ 
+
+I looped over the two outputs and checked them all pairwise, it made it through a few dozen numbers before failing.
 
 _That's even weirder, shouldn't it always be right or wrong?_ 
 
@@ -45,11 +47,13 @@ I tried plotting the residuals (difference) between the two outputs and got this
 
 _That's weird ... why are the errors quantized? Oh right - floats._ 
 
-## What the Float
+## We All Float On Alright
 
 Here's what I thought was going on, to first order.
 
-Numbers are infinite but computers are decidedly finite which means any computational (physical) representation of the number line is going to have certain constraints. The most common representation computers use are called floating points, or "floats". This represents every number as some real number of finite length raised to an exponent like this $123.456e^{10}$. Now here's where the constraints come in. Because the _length_ of the prefix to the exponent (also called the "mantissa") is limited, it means we can only construct a finite number of mantissas _per exponent_. And that means that as the exponents get smaller, the numbers we can represent get closer and closer. The exponents themselves have a limited range (much less than the range of the mantissa) which means at some point we get to the smallest interval we can express in our floating point system.  
+Numbers are infinite but computers are decidedly finite which means any computational (physical) representation of the number line is going to have certain constraints. The most common representation computers use are called floating points, or "floats". This represents every number as some real number of finite length raised to an exponent like this $123.456e^{10}$. 
+
+Now here's where the constraints come in. Because the number of digits in the prefix to the exponent (also called the "mantissa") is limited, it means we can only construct a finite number of mantissas _per exponent_. And that means that as the exponents get smaller, the numbers we can represent get closer and closer. The exponents themselves have a limited range (much less than the range of the mantissa) which means at some point we get to the smallest interval we can express in our floating point system.  
 
 I'm hand-waiving away some details here but that's what went through my mind the first time I saw the graph of my residuals. I noticed the errors were on the order of $1e^{-15}$, which is effectively zero for my purposes, and figured I must have hit the floating point limit. I assumed there must be some rounding approximation in the standard library `statistics.mean` function or something.
 
@@ -59,7 +63,7 @@ Regardless of the details, my function was correct so I could just stop there. (
 
 I really wanted to get back to my main project, but now my interest was piqued. Could I _prove_ that this was just rounding errors on floating point math?
 
-To start with, how many values were there?
+To start with I checked that both the outputs had 1000 distinct values, so the quantization wasn't happening there. Now, how many different residual values were there?
 
 ```python
 >>>len(residuals)
@@ -68,7 +72,7 @@ To start with, how many values were there?
 >>>len(set(residuals))
 18
 ```
-OK, only 18 distinct values out of 1000. That's not that the many, let's take a look.
+OK, only 18 distinct values out of 1000, so the issue is being introduced when I subtract the two outputs. 18 isn't that many, let's take a look.
 
 ```python
 >>>sorted(set(residuals))
@@ -112,12 +116,36 @@ We can calculate the distances between points to make sure they're really the sa
 
 That seems promising, there are only 5 distinct distances. Maybe the smallest of those is the minimum floating point step size?
 
-It turns out you can figure this out!
+It turns out you can figure this out with the `sys.float` command!
 ```python
 >>>import sys
 >>>sys.float_info
 
-sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)
+sys.float_info(
+    max=1.7976931348623157e+308, 
+    max_exp=1024, 
+    max_10_exp=308, 
+    min=2.2250738585072014e-308, 
+    min_exp=-1021, 
+    min_10_exp=-307, 
+    dig=15, 
+    mant_dig=53, 
+    epsilon=2.220446049250313e-16, 
+    radix=2, 
+    rounds=1
+)
 ```
 
-The value we care about is `epsilon=2.220446049250313e-16`, which is one of, but not the smallest number in our list of spacings.
+There value we care about is `epsilon=2.220446049250313e-16`. This value is one of our list of spacings, but not the smallest one. The Python docs define `float_info.epsilon` as:
+
+> difference between 1.0 and the least value greater than 1.0 that is representable as a float.
+
+OK, that seems consistent with the idea that we're hitting the lower limit of what we can represent with floats. Seems like a good place to stop!
+
+_we're not stopping_
+
+## Next
+
+If you squint at the list of distinct residuals you might notice a pattern that many of them are offset by the `float_info.epsilon` value. Actually, it looks like there are two "families" of residuals, each coming at intervals of epsilon, but with one family offset but 1/2 epsilon. 
+
+![Floating Point Residual by Epsilon Family](../../public/images/floating-point-residuals-by-epsilon-family.png)
