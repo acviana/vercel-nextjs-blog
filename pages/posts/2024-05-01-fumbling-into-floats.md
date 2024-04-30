@@ -8,14 +8,15 @@ author: acv
 
 ## What Do You Mean?
 
-Recently, I was working on a side project writing a [multi-armed bandit simulator](https://github.com/acviana/multiarmed-bandit-simulation/tree/main). This requires iteratively appending to a series of numbers and updating the mean. It turns out that instead recalculating the mean of the entire series you can do this in a computationally efficient way by implementing an [incremental mean](https://math.stackexchange.com/a/106720). Here what that looks like in Python:
+Recently, I was working on a side project writing a [multi-armed bandit simulator](https://github.com/acviana/multiarmed-bandit-simulation/tree/main). Part of the code requires iteratively appending to a series of numbers and calculating the mean. It turns out that instead recalculating the mean of the entire series you can do this in a computationally efficient way by implementing an [incremental mean](https://math.stackexchange.com/a/106720). Here what that looks like in Python:
 
 ```python
 def incremental_mean(mean: float, observation: float, n: int) -> float:
     return mean + ((observation - mean) / n)
 ```
 
-The benefit of using this incremental mean formula for this is that each incremental calculation is $\mathcal{O}(1)$ while calculating the mean of the entire series would be $\mathcal{O}(n)$. To see this I benchmarked this with a series of 1000 randomly generated floats, once using my incremental mean formula and once using the `statistics.mean` function from the Python Standard Library.
+The benefit of using this incremental mean formula is that each incremental calculation is $\mathcal{O}(1)$ while calculating the mean of the entire series would be $\mathcal{O}(n)$. To see this, I benchmarked both methods with a series of 1000 randomly generated floats, once using my incremental mean function and once using the `statistics.mean` function from the Python Standard Library.
+
 
 ```python
 %%timeit
@@ -33,7 +34,7 @@ _We were not done_
 
 ## What the Float?!?
 
-Everything seemed to be working fine in the larger project with the faster incremental formula so I moved on. But, while I was debugging a different error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm they're the same and it failed.
+I swapped in my faster incremental formula into my project, got the same results but faster, and moved on. But, while I was debugging a different error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm they're the same and it failed.
 
 _No surprise, probably a typo!_ 
 
@@ -41,7 +42,7 @@ So then I looped over the two outputs and checked them all pairwise, it made it 
 
 _That's weird, shouldn't it always be right or wrong?_ 
 
-Then tried plotting the residuals (difference) between the two outputs and got this graph
+Then tried plotting the residuals (differences) between the two outputs and got this graph
 
 ![incremental mean residuals](../../public/images/incremental-mean-residuals.png)
 
@@ -55,7 +56,7 @@ Numbers are infinite but computers are decidedly finite. This means any computat
 
 Now here's where the constraints come in. Because the number of digits in the prefix to the exponent (also called the "mantissa") is limited, it means we can only construct a finite number of mantissas _per exponent_. That means that as the exponents get smaller, the numbers we can represent get closer and closer. The exponents themselves have a limited range (much less than the range of the mantissa) which means at some point we get to the smallest interval we can express in our floating point system.  
 
-I'm hand-waiving away some details here but that's what went through my mind the first time I saw the graph of my residuals. I noticed the errors were on the order of $1e^{-15}$. This is effectively zero for my purposes, and figured I must have hit the floating point limit. I assumed there must be some rounding approximation in the standard library `statistics.mean` function or something.
+I'm hand-waiving away some details (which we'll return to later) but that's what went through my mind the first time I saw the graph of my residuals. I noticed the errors were on the order of $1e^{-15}$. This is effectively zero for my purposes, and figured I must have hit the floating point limit. I assumed there must be some rounding approximation in the standard library `statistics.mean` function or something.
 
 Regardless of the details, my function was correct so I could just stop there. 
 
@@ -65,7 +66,7 @@ _I did not stop there._
 
 I really wanted to get back to my main project, but now my interest was piqued. Could I _prove_ that this was just rounding errors on floating point math?
 
-To start with, I confirmed that both the outputs had 1000 distinct values, that seems normal. Now, how many different residual values were there?
+To start with, I confirmed that both the outputs each had 1000 distinct values, that seems normal. Now, how many different residual values were there?
 
 ```python
 >>>len(residuals)
@@ -74,7 +75,7 @@ To start with, I confirmed that both the outputs had 1000 distinct values, that 
 >>>len(set(residuals))
 18
 ```
-OK, only 18 distinct values out of 1000, so the issue is being introduced when I subtract the two outputs. 18 isn't that many, let's take a look.
+OK, only 18 distinct values out of 1000, so my suspicion is this effect is being introduced when I subtract the two outputs. 18 isn't that many, let's take a look.
 
 ```python
 >>>sorted(set(residuals))
@@ -118,7 +119,7 @@ We can calculate the distances between points to make sure they're really the sa
 
 That seems promising, there are only 5 distinct distances. Maybe the smallest of those is the minimum floating point step size?
 
-## An Epsilon of Difference
+## An Epsilon of Delta
 
 It turns out you can figure out the float properties of your system with the `sys.float` command.
 
@@ -145,7 +146,7 @@ The value we care about is `epsilon=2.220446049250313e-16`. This value is one of
 
 > difference between 1.0 and the least value greater than 1.0 that is representable as a float.
 
-OK, that seems consistent with the idea that we're hitting the lower limit of what we can represent with floats. Seems like a good place to stop!
+OK, that seems consistent with the idea that we're hitting the lower limit of what we can represent with floats. It doesn't quite explain why I see values smaller than that but still, this seems like a reasonable place to stop!
 
 _We're not stopping._
 
@@ -155,7 +156,9 @@ If you squint at the list of distinct residuals you might notice a pattern that 
 
 ![Floating Point Residual by Epsilon Family](../../public/images/floating-point-residuals-by-epsilon-family.png)
 
-The families are color coded in both figures. On the top they all appear on the same number line. On the bottom figure they are separated for clarity. 
+The families are color coded in both figures. On the top they all appear on the same number line. On the bottom figure they are separated for clarity. You can see the two families as well as two points that don't fit into that scheme.
 
-There are still two points that don't fit into that scheme.
-
+TODO:
+- https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
+- https://stackoverflow.com/questions/78394027/i-cant-understand-machine-epsilon-arithmetic
+- https://stackoverflow.com/questions/23190017/is-pythons-epsilon-value-correct
