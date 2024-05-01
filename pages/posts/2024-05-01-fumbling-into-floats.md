@@ -8,14 +8,14 @@ author: acv
 
 ## What Do You Mean?
 
-Recently, I was working on a side project writing a [multi-armed bandit simulator](https://github.com/acviana/multiarmed-bandit-simulation/tree/main). Part of the code requires iteratively appending to a series of numbers and calculating the mean. It turns out that instead recalculating the mean of the entire series you can do this in a computationally efficient way by implementing an [incremental mean](https://math.stackexchange.com/a/106720). Here what that looks like in Python:
+Recently, I was working on a side project writing a [multi-armed bandit simulator](https://github.com/acviana/multiarmed-bandit-simulation/tree/main) from scratch. Part of the code requires iteratively appending to a series of numbers and then calculating the mean. It turns out that instead recalculating the mean over the entire series each time you can instead use a more computationally efficient [incremental mean](https://math.stackexchange.com/a/106720). Here what that looks like in Python:
 
 ```python
 def incremental_mean(mean: float, observation: float, n: int) -> float:
     return mean + ((observation - mean) / n)
 ```
 
-The benefit of using this incremental mean formula is that each incremental calculation is $\mathcal{O}(1)$ while calculating the mean of the entire series would be $\mathcal{O}(n)$. To see this, I benchmarked both methods with a series of 1000 randomly generated floats, once using my incremental mean function and once using the `statistics.mean` function from the Python Standard Library.
+The benefit of using this incremental mean formula is that each incremental calculation is $\mathcal{O}(1)$ while calculating the mean of the entire series would be $\mathcal{O}(n)$. To see this, I benchmarked both methods with a series of 1000 randomly generated floats, once using my incremental mean function and once using the `statistics.mean` function from the Python Standard Library. Here are the results:
 
 
 ```python
@@ -34,13 +34,13 @@ _We were not done_
 
 ## What the Float?!?
 
-I swapped in my faster incremental formula into my project, got the same results but faster, and moved on. But, while I was debugging a different error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm they're the same and it failed.
+I swapped in my faster incremental formula into my project, got the same results but faster, and moved on. But, while I was debugging a different error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm that they're the same and the test failed.
 
-_No surprise, probably a typo!_ 
+_No surprise, probably just a typo!_ 
 
-So then I looped over the two outputs and checked them all pairwise, it made it through a few dozen numbers before failing.
+Then I looped over the two outputs and checked them all pairwise. This time, it made it through a few dozen numbers before failing.
 
-_That's weird, shouldn't it always be right or wrong?_ 
+_That's weird, shouldn't the formula always be right or wrong?_ 
 
 Then tried plotting the residuals (differences) between the two outputs and got this graph
 
@@ -75,7 +75,7 @@ To start with, I confirmed that both the outputs each had 1000 distinct values, 
 >>>len(set(residuals))
 18
 ```
-OK, only 18 distinct values out of 1000, so my suspicion is this effect is being introduced when I subtract the two outputs. 18 isn't that many, let's take a look.
+OK, only 18 distinct values out of 1000, so my suspicion is that this effect is being introduced when I subtract the two outputs. 18 isn't that many, let's take a look.
 
 ```python
 >>>sorted(set(residuals))
@@ -142,11 +142,11 @@ sys.float_info(
 )
 ```
 
-The value we care about is `epsilon=2.220446049250313e-16`. This value is one of our list of spacings, but not the smallest one. The Python docs define `float_info.epsilon` as:
+The value we care about is `epsilon=2.220446049250313e-16`. This value is on of our list of spacings, but confusingly it's not the smallest one. The Python docs define `float_info.epsilon` as:
 
 > difference between 1.0 and the least value greater than 1.0 that is representable as a float.
 
-OK, that seems consistent with the idea that we're hitting the lower limit of what we can represent with floats. It doesn't quite explain why I see values smaller than that but still, this seems like a reasonable place to stop!
+OK, that definition seems consistent with the idea that we're hitting the lower limit of what we can represent with floats. It doesn't quite explain why I see values smaller than that but still, this seems like a reasonable place to stop!
 
 _We're not stopping._
 
@@ -156,7 +156,7 @@ If you squint at the list of distinct residuals you might notice a pattern that 
 
 ![Floating Point Residual by Epsilon Family](../../public/images/floating-point-residuals-by-epsilon-family.png)
 
-The families are color coded in both figures. On the top they all appear on the same number line. On the bottom figure they are separated for clarity. You can see the two families as well as two points that don't fit into that scheme.
+The same data appears in both plots with the families are color coded. On the top they all appear on the same number line. On the bottom figure they are separated for clarity and expressed in units of epsilon. You can see the two families, their spacings and offsets, as well as the two points that don't fit into that scheme.
 
 TODO:
 - https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
