@@ -158,7 +158,51 @@ If you squint at the list of distinct residuals you might notice a pattern that 
 
 The same data appears in both plots with the families are color coded. On the top they all appear on the same number line. On the bottom figure they are separated for clarity and expressed in units of epsilon. You can see the two families, their spacings and offsets, as well as the two points that don't fit into that scheme.
 
-TODO:
-- https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html
-- https://stackoverflow.com/questions/78394027/i-cant-understand-machine-epsilon-arithmetic
-- https://stackoverflow.com/questions/23190017/is-pythons-epsilon-value-correct
+## It's Epsilons All The Way Down
+
+It turns out this ideas of epsilon "families" wasn't quite right, and the clue was in the remaining points that I thought didn't "fit". After making lots more plots I finally had an insight. _All_ the errors can be expressed in units of epsilon. Take a look:
+
+```python
+>>>a = [
+    -6.661338147750939e-16,
+    -4.440892098500626e-16,
+    -3.3306690738754696e-16,
+    -2.220446049250313e-16,
+    -1.1102230246251565e-16,
+    -3.469446951953614e-18,
+    0.0,
+    5.551115123125783e-17,
+    1.1102230246251565e-16,
+    2.220446049250313e-16,
+    3.3306690738754696e-16,
+    4.440892098500626e-16,
+    6.661338147750939e-16,
+    8.881784197001252e-16,
+    1.1102230246251565e-15,
+    1.3322676295501878e-15,
+    1.5543122344752192e-15,
+]
+
+>>> [item / sys.float_info.epsilon for item in a]
+[-3.0,
+ -2.0,
+ -1.5,
+ -1.0,
+ -0.5,
+ -0.015625,
+ 0.0,
+ 0.25,
+ 0.5,
+ 1.0,
+ 1.5,
+ 2.0,
+ 3.0,
+ 4.0,
+ 5.0,
+ 6.0,
+ 7.0]
+```
+So all our errors are some rational number times epsilon (0.015625 is 1/64). So epsilon really _is_ the fundamental building block of small number representations (at least close to 0), which explains the quantization effect I saw. At least enough for me.
+
+_Now, we are finally done._
+
