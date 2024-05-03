@@ -160,7 +160,11 @@ The same data appears in both plots with the families are color coded. On the to
 
 ## It's Epsilons All The Way Down
 
-It turns out this ideas of epsilon "families" wasn't quite right, and the clue was in the remaining points that I thought didn't "fit". After making lots more plots I finally had an insight. _All_ the errors can be expressed in units of epsilon. Take a look:
+At one point while working on this I remember thinking 
+
+_Boy, it's lucky that these numbers were multiples 1.11 or I wouldn't have been able to spot them_
+
+Yeah, so about that. It turns out this ideas of epsilon "families" wasn't quite right, and the clue was in the remaining points that I thought didn't "fit". After making lots more plots I finally realized that _all_ the errors can be expressed in units of epsilon. Take a look:
 
 ```python
 >>>a = [
@@ -202,7 +206,9 @@ It turns out this ideas of epsilon "families" wasn't quite right, and the clue w
  6.0,
  7.0]
 ```
-So all our errors are some rational number times epsilon (0.015625 is 1/64). So epsilon really _is_ the fundamental building block of small number representations (at least close to 0), which explains the quantization effect I saw. At least enough for me.
+So all our errors are some rational number times epsilon (0.015625 is 1/64). For values larger than epsilon  the step size is $k * \epsilon$ where $k$ is an integer. For values smaller than epsilon it's $(1/2^{k} * \epsilon)$. So epsilon really _is_ the fundamental building block of small number representations (at least close to 0), which explains the quantization effect I saw. 
+
+This is very much a inductive approach to understanding the problem, one where I'm working backwards from the data. I could come at this from deductive angle but I think that would involve reading IEEE specs, CS textbooks, and Python source code. All that sounds fun but I want to return to my main project of simulating multi-armed bandits. So, at least for now, this is proof enough for me.
 
 _Now, we are finally done._
 
