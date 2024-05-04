@@ -206,7 +206,20 @@ Yeah, so about that. It turns out this ideas of epsilon "families" wasn't quite 
  6.0,
  7.0]
 ```
-OK so epsilon itself is not the smallest difference we can express (that was already clear). But it is the basis for representing all small differences because all our errors are some rational number times epsilon. For values larger than epsilon  the step size is $k \cdot \epsilon$ where $k$ is an integer. For values smaller than epsilon it's $\epsilon/2^{k}$ (e.g. 0.015625 is 1/64). So epsilon really _is_ the fundamental building block of small number representations (at least close to 0), which explains the quantization effect I saw. 
+OK so epsilon itself is not the smallest difference we can express (that was already clear). But it is the basis for representing all small differences because all our errors are some rational number times epsilon. 
+
+To test this I ran some more simulations and cranked up the sample size to 50k. The residuals moved around a lot more as you can see in the plot below. But when I checked every single one was always a multiple of epsilon.
+
+![Mean and Residuals for 50k Steps](../../public/images/mean-and-residuals-large-dataset.png)
+
+The patterns was something like this. 
+- For values larger than $\pm 2$ the step size is $k \cdot \epsilon$ where $k$ is an integer (or sometimes $\epsilon/2$). 
+- For values between $\pm 2$ and $\pm 1/4$ the step size was $\epsilon/4$. 
+- Smaller than $\pm 1/4$ goes like $\epsilon/2^{k}$ (e.g. $0.015625$ is $1/64$). 
+
+Interestingly, I didn't always see the same step sizes and values so I think there's a lot of optimization going on under the hood. 
+
+But, all this to say I'm satisfied that epsilon really _is_ the fundamental building block of small number representations (at least close to 0), which explains the quantization effect I saw. 
 
 ## At the Bottom of Everything
 
