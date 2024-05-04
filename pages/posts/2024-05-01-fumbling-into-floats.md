@@ -1,8 +1,8 @@
 ---
 title: Fumbling Into Floats
-date: 2024-05-01
+date: 2024-05-04
 description: Down a rabbit hole of floating point numbers
-tag: coding, math
+tag: coding, math, floating-point, cs
 author: acv
 ---
 
