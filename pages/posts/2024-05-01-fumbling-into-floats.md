@@ -8,7 +8,7 @@ author: acv
 
 ## What Do You Mean?
 
-Recently, I was working on a side project writing a [multi-armed bandit simulator](https://github.com/acviana/multiarmed-bandit-simulation/tree/main) from scratch. Part of the code requires iteratively appending to a series of numbers and then calculating the mean. It turns out that instead recalculating the mean over the entire series each time you can instead use a more computationally efficient [incremental mean](https://math.stackexchange.com/a/106720). Here what that looks like in Python:
+Recently, I was working on a side project writing a [multi-armed bandit simulator](https://github.com/acviana/multiarmed-bandit-simulation/tree/main) from scratch. Part of the code requires iteratively appending to a series of numbers and calculating the mean. It turns out that instead recalculating the mean over the entire series each time you can use a more computationally efficient [incremental mean](https://math.stackexchange.com/a/106720). Here what that looks like in Python:
 
 ```python
 def incremental_mean(mean: float, observation: float, n: int) -> float:
@@ -34,7 +34,7 @@ _We were not done_
 
 ## What the Float?!?
 
-I swapped in my faster incremental formula into my project, got the same results but faster, and moved on. But, while I was debugging a different error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm that they're the same and the test failed.
+I swapped in my faster incremental formula into my project, got the same results but faster, and moved on. But, while I was debugging a different error I decided to return to this function just to double-check. I tried to run an `assert` against the two outputs from my benchmark to confirm that they were the same and the test failed.
 
 _No surprise, probably just a typo!_ 
 
@@ -58,7 +58,7 @@ Now here's where the constraints come in. Because the number of digits in the pr
 
 I'm hand-waiving away some details (which we'll return to later) but that's what went through my mind the first time I saw the graph of my residuals. I noticed the errors were on the order of $1e^{-15}$. This is effectively zero for my purposes, and figured I must have hit the floating point limit. I assumed there must be some rounding approximation in the standard library `statistics.mean` function or something.
 
-Regardless of the details, my function was correct so I could just stop there. 
+Regardless of the details, this meant my function was correct so I could just stop there. 
 
 _I did not stop there._
 
@@ -66,7 +66,7 @@ _I did not stop there._
 
 I really wanted to get back to my main project, but now my interest was piqued. Could I _prove_ that this was just rounding errors on floating point math?
 
-To start with, I confirmed that both the outputs each had 1000 distinct values, that seems normal. Now, how many different residual values were there?
+To start with, I confirmed that both the outputs each had 1000 distinct values which seemed normal. Now, how many different residual values were there?
 
 ```python
 >>>len(residuals)
@@ -75,7 +75,7 @@ To start with, I confirmed that both the outputs each had 1000 distinct values, 
 >>>len(set(residuals))
 18
 ```
-OK, only 18 distinct values out of 1000, so my suspicion is that this effect is being introduced when I subtract the two outputs. 18 isn't that many, let's take a look.
+OK, only 18 distinct values out of 1000. So now my suspicion is that this effect is being introduced when I subtract the two outputs. 18 isn't that many, let's take a look.
 
 ```python
 >>>sorted(set(residuals))
@@ -162,9 +162,9 @@ The same data appears in both plots with the families are color coded. On the to
 
 At one point while working on this I remember thinking 
 
-_Boy, it's lucky that these numbers were multiples 1.11 or I wouldn't have been able to spot them_
+_Boy, it's lucky that these numbers were multiples of roughly 1.11 or I wouldn't have been able to spot the pattern! (e.g. 2.22, 3.33, etc.)_
 
-Yeah, so about that. It turns out this ideas of epsilon "families" wasn't quite right, and the clue was in the remaining points that I thought didn't "fit". After making lots more plots I finally realized that _all_ the errors can be expressed in units of epsilon. Take a look:
+Yeah, so about that. It turns out this ideas of epsilon "families" wasn't quite right, and the clue was in the remaining points that I thought didn't "fit" the pattern. After making lots more plots I finally realized that _all_ the errors can be expressed in units of epsilon. Take a look:
 
 ```python
 >>>a = [
@@ -206,9 +206,11 @@ Yeah, so about that. It turns out this ideas of epsilon "families" wasn't quite 
  6.0,
  7.0]
 ```
-So all our errors are some rational number times epsilon (0.015625 is 1/64). For values larger than epsilon  the step size is $k * \epsilon$ where $k$ is an integer. For values smaller than epsilon it's $(1/2^{k} * \epsilon)$. So epsilon really _is_ the fundamental building block of small number representations (at least close to 0), which explains the quantization effect I saw. 
+OK so epsilon itself is not the smallest difference we can express (that was already clear). But it is the basis for representing all small differences because all our errors are some rational number times epsilon. For values larger than epsilon  the step size is $k \cdot \epsilon$ where $k$ is an integer. For values smaller than epsilon it's $\epsilon/2^{k}$ (e.g. 0.015625 is 1/64). So epsilon really _is_ the fundamental building block of small number representations (at least close to 0), which explains the quantization effect I saw. 
 
-This is very much a inductive approach to understanding the problem, one where I'm working backwards from the data. I could come at this from deductive angle but I think that would involve reading IEEE specs, CS textbooks, and Python source code. All that sounds fun but I want to return to my main project of simulating multi-armed bandits. So, at least for now, this is proof enough for me.
+## At the Bottom of Everything
+
+This is very much a inductive approach to understanding the problem, one where I'm working backwards from the data. I could come at this from deductive angle but I think that would involve reading IEEE specs, CS textbooks, and Python source code. All that sounds fun (seriously!) but I want to return to my main project of simulating multi-armed bandits. So, at least for now, this is proof enough for me.
 
 _Now, we are finally done._
 
