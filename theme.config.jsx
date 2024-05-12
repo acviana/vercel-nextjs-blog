@@ -75,10 +75,9 @@ export default {
   postFooter: null,
   darkMode: true,
   // Remove this from the nav 
-  navs: [
-    {
-      url: 'https://github.com/shuding/nextra',
-      name: 'Nextra'
-    }
-  ]
+//  navs: [
+//    {
+//      url: 'https://github.com/shuding/nextra',
+//      name: 'Nextra'
+//      ]
 }
