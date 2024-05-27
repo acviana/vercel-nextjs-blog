@@ -1,7 +1,7 @@
-Title: Special Methods in Python
-Date: 2017-03-15
+title: Special Methods in Python
+date: 2017-03-15
 Category: Python
-Tags: python, presentations
+tags: python, presentations
 Slug: special-methods-in-python
 Authors: Alex C. Viana
 

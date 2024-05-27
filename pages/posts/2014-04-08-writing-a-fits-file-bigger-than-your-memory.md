@@ -1,6 +1,6 @@
-Title: Writing a FITS File Bigger Than Your Memory
-Date: 2014-04-08
-Tags: fits, python, code
+title: Writing a FITS File Bigger Than Your Memory
+date: 2014-04-08
+tags: fits, python, code
 Slug: writing-a-fits-file-bigger-than-your-memory
 Author: Alex C. Viana, Erik Bray
 Category: Work

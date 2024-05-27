@@ -1,6 +1,6 @@
-Title: A Basic Automation Setup for Astronomy: Part 1
-Date: 2013-11-23
-Tags: code, devops
+title: A Basic Automation Setup for Astronomy: Part 1
+date: 2013-11-23
+tags: code, devops
 Slug: a-basic-automation-setup
 Author: Alex C. Viana
 Category: Work

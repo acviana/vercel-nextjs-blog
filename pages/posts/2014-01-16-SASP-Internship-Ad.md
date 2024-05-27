@@ -1,6 +1,6 @@
-Title: 2014 Summer Internship Opportunity
-Date: 2014-01-16
-Tags: mtpipeline
+title: 2014 Summer Internship Opportunity
+date: 2014-01-16
+tags: mtpipeline
 Slug: 2014-summer-internship-opportunity
 Author: Alex C. Viana
 Category: Work

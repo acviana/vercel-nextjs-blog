@@ -1,6 +1,6 @@
-Title: Guilty As Charged
-Date: 2013-12-19
-Tags: git, humor
+title: Guilty As Charged
+date: 2013-12-19
+tags: git, humor
 Slug: guilty-as-charged
 Author: Alex C. Viana
 Category: Work

@@ -1,7 +1,7 @@
-Title: Setting Up Pelican with GitHub Pages
-Date: 2017-02-25
+title: Setting Up Pelican with GitHub Pages
+date: 2017-02-25
 Category: Python
-Tags: python, pelican, github
+tags: python, pelican, github
 Slug: setting-up-pelican-with-github-pages
 Authors: Alex C. Viana
 

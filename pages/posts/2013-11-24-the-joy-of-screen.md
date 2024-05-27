@@ -1,6 +1,6 @@
-Title: The Joy of "Screen"
-Date: 2013-11-24
-Tags: devops
+title: The Joy of "Screen"
+date: 2013-11-24
+tags: devops
 Slug: the-joy-of-screen
 Author: Alex C. Viana
 Category: Work

@@ -1,6 +1,6 @@
-Title: Faster File Existence Testing with Sets
-Date: 2014-01-19
-Tags: python, code
+title: Faster File Existence Testing with Sets
+date: 2014-01-19
+tags: python, code
 Slug: faster-file-checking-with-sets
 Author: Alex C. Viana
 Category: Work

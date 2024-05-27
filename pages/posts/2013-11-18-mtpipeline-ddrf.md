@@ -1,6 +1,6 @@
-Title: The Moving Target Pipeline
-Date: 2013-11-18
-Tags: mtpipeline, milestones, wfc3, acs, hst, jwst, wfpc2
+title: The Moving Target Pipeline
+date: 2013-11-18
+tags: mtpipeline, milestones, wfc3, acs, hst, jwst, wfpc2
 Slug: mtpipeline-ddrf
 Author: Alex C. Viana
 Category: Work

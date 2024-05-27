@@ -1,6 +1,6 @@
-Title: Working with NumPy Arrays and SQL
-Date: 2014-04-07
-Tags: python, code, psf
+title: Working with NumPy Arrays and SQL
+date: 2014-04-07
+tags: python, code, psf
 Slug: numpy-arrays-and-sql
 Author: Alex C. Viana
 Category: Work

@@ -1,7 +1,7 @@
-Title: What The F*ck Is The Internet Vol. 1:  Bits, Encoding, Packets, and Protocols
-Date: 2017-03-17
+title: What The F*ck Is The Internet Vol. 1:  Bits, Encoding, Packets, and Protocols
+date: 2017-03-17
 Category: Python
-Tags: python, presentations
+tags: python, presentations
 Slug: what-the-fck-is-the-internet-vol-1
 Authors: Alex C. Viana
 

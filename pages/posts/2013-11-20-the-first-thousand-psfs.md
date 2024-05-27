@@ -1,6 +1,6 @@
-Title: The First Thousand PSFs
-Date: 2013-11-20
-Tags: wfc3, psf, uvis, plots
+title: The First Thousand PSFs
+date: 2013-11-20
+tags: wfc3, psf, uvis, plots
 Slug: the-first-thousand-psfs
 Author: Alex C. Viana
 Category: Work
@@ -15,7 +15,7 @@ Many applications for the PSF database involve looking at PSF changes over a tim
 
 In case you want to play along at home, this image is in the public domain and can be found [here](http://archive.stsci.edu/cgi-bin/mastpreview?mission=hst&dataid=IABJ01A2Q). 
 
-### Plotting the PSF Fits 
+### Plotting the PSF Fits
 
 So I went ahead and fitted a Gaussian in both the row and column directions for all the stars in that image. Then I studied the distribution by plotting the fit parameters against each other in each slice.
 

@@ -1,7 +1,7 @@
-Title: An Intro to Regex
-Date: 2017-05-10
+title: An Intro to Regex
+date: 2017-05-10
 Category:
-Tags:presentations
+tags:presentations
 Slug: an-intro-to-regex
 Authors: Alex C. Viana
 

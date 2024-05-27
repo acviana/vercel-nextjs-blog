@@ -1,6 +1,6 @@
-Title: Fitting 2D Gaussians with agpy
-Date: 2014-01-30
-Tags: python, code, psf, uvis, wfc3, milestones, plots, hst
+title: Fitting 2D Gaussians with agpy
+date: 2014-01-30
+tags: python, code, psf, uvis, wfc3, milestones, plots, hst
 Slug: fitting-2d-gaussians-with-agpy
 Author: Alex C. Viana
 Category: Work

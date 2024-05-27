@@ -1,6 +1,6 @@
-Title: That Time I Made a Metaclass
-Date: 2013-12-04
-Tags: code, python, database
+title: That Time I Made a Metaclass
+date: 2013-12-04
+tags: code, python, database
 Slug: that-time-i-made-a-metaclass
 Author: Alex C. Viana
 Category: Work

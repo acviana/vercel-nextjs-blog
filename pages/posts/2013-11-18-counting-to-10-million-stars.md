@@ -1,6 +1,6 @@
-Title: Counting to 10 Million Stars
-Date: 2013-11-18
-Tags: wfc3, psf, uvis, plots, code, python
+title: Counting to 10 Million Stars
+date: 2013-11-18
+tags: wfc3, psf, uvis, plots, code, python
 Slug: counting-to-10-million-stars
 Author: Alex C. Viana
 Category: Work
@@ -13,7 +13,7 @@ I am starting a new project that I'm pretty excited, it's one of the reasons I d
 
 The dataset for this project is 10 million stellar [PSFs](http://en.wikipedia.org/wiki/Point_spread_function) observations taken with the HST WFC3 UVIS instrument. These PSF were data mined from the total on-orbit data set of roughly 35 thousand WFC3 UVIS observations using a colleague's specialized FORTRAN code which extracted a 11x11 array centered on each PSF. This is an especially powerful method of constructing our dataset because it allows us to use any incidental PSFs observations when the target was not a star or stellar field.
 
-### Fitting 1-D Gaussian Distributions 
+### Fitting 1-D Gaussian Distributions
 
 After some initial work I was able to create a reader that takes the outputs text files from my colleague's code and transforms it into a numpy array. Next, we decided we wanted to start by characterizing the PSFs with two 1-D Gaussian fits through the center pixel, one in the row direction and another in the column.
 

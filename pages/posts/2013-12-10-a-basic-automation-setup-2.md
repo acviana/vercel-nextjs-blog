@@ -1,6 +1,6 @@
-Title: A Basic Automation Setup for Astronomy: Part 2
-Date: 2013-12-10
-Tags: code, devops, python
+title: A Basic Automation Setup for Astronomy: Part 2
+date: 2013-12-10
+tags: code, devops, python
 Slug: a-basic-automation-setup-2
 Author: Alex C. Viana
 Category: Work
@@ -27,7 +27,7 @@ Something that I think sometimes gets lost when you start to transfer you work t
 
 With the command line `grep` utility you can quickly start to look for trends. If you want to do even more you can explore the Pandas Python package, more on that in a later post. 
 
-### Getting Started with the Python Logger 
+### Getting Started with the Python Logger
 
 Python has a great [logging](http://docs.python.org/2/library/logging.html) module. You can find a basic tutorial [here](http://docs.python.org/2/howto/logging.html#logging-basic-tutorial). There are lots of ways to invoke and setup the Python logger. I usually define a function something like this and import it throughout my project.
 
@@ -48,7 +48,7 @@ def setup_logging(module):
 
 What this does is it will create a separate log directory for each module and the log the outputs in a date-stamped file, e.g. `/my-project/logs/my_module/my_module_2013-12-22-15-41.log`. Every line in the log file will then begin with a date and time stamp, followed by the level name and then the logging message, similar to the output I showed in the last section. Lastly, I tell it to log all statements down to the "INFO" level.
 
-### A Logging Recipe 
+### A Logging Recipe
 
 ```python
 def log_info(func):

@@ -1,6 +1,6 @@
-Title: The Trouble with Tech Blogs
-Date: 2013-11-17
-Tags: pelican 
+title: The Trouble with Tech Blogs
+date: 2013-11-17
+tags: pelican 
 Slug: the-trouble-with-tech-blogs
 Author: Alex C. Viana
 Category: Work

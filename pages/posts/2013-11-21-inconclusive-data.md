@@ -1,6 +1,6 @@
-Title: The Data are Inconclusive 
-Date: 2013-11-21
-Tags: psf
+title: The Data are Inconclusive 
+date: 2013-11-21
+tags: psf
 Slug: the-data-are-inconclusive
 Author: Alex C. Viana
 Category: Work
