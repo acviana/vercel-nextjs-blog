@@ -1,9 +1,9 @@
+---
 title: Counting to 10 Million Stars
 date: 2013-11-18
 tags: wfc3, psf, uvis, plots, code, python
-Slug: counting-to-10-million-stars
-Author: Alex C. Viana
-Category: Work
+author: acv
+---
 
 I've started a new project working with 10 million stellar PSFs. In my first few steps in the project I performed some model fitting and made a pretty visualization of the individual data points.
 

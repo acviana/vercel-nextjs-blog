@@ -1,9 +1,9 @@
+---
 title: The First Thousand PSFs
 date: 2013-11-20
 tags: wfc3, psf, uvis, plots
-Slug: the-first-thousand-psfs
-Author: Alex C. Viana
-Category: Work
+author: acv
+---
 
 In my last post on my PSF Project I characterized the PSF shape by fitting a 1-D Gaussian to the a row and column slice through the central pixel. In this post I start to think about how to characterize entire images with thousands of stars.
 

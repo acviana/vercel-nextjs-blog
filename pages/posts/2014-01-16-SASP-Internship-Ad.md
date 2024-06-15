@@ -3,7 +3,7 @@ date: 2014-01-16
 tags: mtpipeline
 Slug: 2014-summer-internship-opportunity
 Author: Alex C. Viana
-Category: Work
+
 
 The Moving Target Pipeline group at the Space Telescope Science Institute (STScI) in Baltimore, Maryland seeks a graduate or undergraduate student for a paid summer internship through the Institute's Space Astronomy Summer Program (SASP). The intern will work with our group to develop, test, and run our software pipeline which processes Solar System object observations ("moving targets") taken with the Hubble Space Telescope.
 

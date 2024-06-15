@@ -1,9 +1,9 @@
+---
 title: The Moving Target Pipeline
 date: 2013-11-18
 tags: mtpipeline, milestones, wfc3, acs, hst, jwst, wfpc2
-Slug: mtpipeline-ddrf
-Author: Alex C. Viana
-Category: Work
+Author: acv
+---
 
 
 A few weeks ago I was awarded an research grant to continue working on a prototype software pipeline for HST moving target (solar system) observations. The grant came from an internal source called the Director's Discretionary Research Fund (DDRF). My project, called the Moving Target Pipeline, was fully funded at $21,000 and allows me to buy back 25% of my time for one year to work on the project. Here is the proposal abstract:

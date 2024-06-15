@@ -3,7 +3,7 @@ date: 2014-04-08
 tags: fits, python, code
 Slug: writing-a-fits-file-bigger-than-your-memory
 Author: Alex C. Viana, Erik Bray
-Category: Work
+
 
 <center>_I've listed [Erik Bray](https://plus.google.com/+ErikBray/about)([GitHub](https://github.com/embray)) as a co-author on this post. Erik is one of the PyFITS developers and this post was born out of an email chain where he explained most of what follows to me, several times._</center>
 

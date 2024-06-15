@@ -3,7 +3,7 @@ date: 2013-12-10
 tags: code, devops, python
 Slug: a-basic-automation-setup-2
 Author: Alex C. Viana
-Category: Work
+
 Status: draft
 
 ### Why Log Files?

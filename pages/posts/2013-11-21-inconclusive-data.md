@@ -1,9 +1,9 @@
+---
 title: The Data are Inconclusive 
 date: 2013-11-21
 tags: psf
-Slug: the-data-are-inconclusive
-Author: Alex C. Viana
-Category: Work
+author: acv
+---
 
 > "Give me a point and I can draw a line. Give me two points and I can draw a curve. That's astronomy." - Anonymous Professor.
 
