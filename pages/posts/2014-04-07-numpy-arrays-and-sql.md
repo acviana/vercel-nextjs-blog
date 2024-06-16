@@ -1,7 +1,7 @@
 ---
 title: Working with NumPy Arrays and SQL
 date: 2014-04-07
-tags: python, code, psf
+tag: python, code, psf
 author: acv
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Exploring Python's 'in' operator
 date: 2017-02-17
-tags: python
+tag: python
 author: Alex C. Viana
 ---
 

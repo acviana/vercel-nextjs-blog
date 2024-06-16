@@ -1,10 +1,9 @@
 ---
-title: A Basic Automation Setup for Astronomy: Part 1
-date: 2013-11-23
-tags: code, devops
+title: A Basic Automation Setup for Astronomy - Part 1
+date: 2013-11-23T00:00:00.000Z
+tag: 'code, devops'
 author: acv
 ---
-
 For one of my projects at work I engineered an automation platform for one of our instrument teams. This platform allows us to automatically execute 20+ daily scripts, written in a variety of programming languages, as data is coming down from the telescope. All the scripts for our team, from the downloading the data, copying and indexing the data in an SQL database, running in-house scripts, and system self-diagnostics run on the same automation platform. Adding a script to this platform requires as little as 4 lines of code. Our codebase is updated with hourly builds from our team of 6 developers and all execution and maintenance is performed via a service account on a Linux Red Hat virtual machine.
 
 This is going to be a series of posts where I'm going to cover all the odds and ends I had to stick together to build this system. This is far from a generalized solution but hopefully you can learn from my mistakes and build something to suit your own needs faster and better than I did.
@@ -24,29 +23,29 @@ If you look at some cron tutorials you'll see that cron jobs are scheduled with 
 
 This will execute `my_script.py` every day at 11 am. This is nothing you can't find in any cron tutorial but here are some tricks I found useful that I had to dig around for a little bit. You can also run multiple scripts sequentially on one line by separating them with a semicolon (`;`) like this:
 
-	00 11 * * * my_first_script.py; my_second_script.py
+ 00 11 * * * my_first_script.py; my_second_script.py
 
 Each script will run once after the preceding script finishes regardless of the preceding script's exit status. Alternatively, you can make the execution of the second script dependent on the successful completion of the first script with a double ampersand (`&&`) like this:
 
-	00 11 * * * my_first_script.py && my_second_script.py
+ 00 11 * * * my_first_script.py && my_second_script.py
 
 Now cron is likely going to try to be helpful by emailing you any outputs from your code. The recipient of this email can be defined by setting the `MAILTO` variable before the job definitions like this:
 
-	MAILTO = 'my_team_list@my_institution.edu'
-	00 11 * * * my_first_script.py && my_second_script.py
+ MAILTO = 'my_team_list@my_institution.edu'
+ 00 11 * * * my_first_script.py && my_second_script.py
 
 You can also define any other variables or alias you want in this same manner. But let's say that you only want to hear from cron when something breaks. You can do this by redirecting `STDOUT` just as you would from the command line:
 
-	MAILTO = 'my_team_list@my_institution.edu'
-	00 11 * * * my_first_script.py && my_second_script.py > /dev/null
+ MAILTO = 'my_team_list@my_institution.edu'
+ 00 11 * * * my_first_script.py && my_second_script.py > /dev/null
 
 Now you will only get an email when something gets passed to `STDERR`. For our setup, this is all the cron syntax we needed to understand. Now onto setting up you environment.
 
 ### Ureka: Setting Up Your Environment
 
-Right now you might be thinking, _"My environment is already set up! Right?"_. This is when using cron starts to become a little non-trivial; cron does not know about your [enviorment variables](http://stackoverflow.com/questions/2229825/where-can-i-set-environment-variables-that-crontab-will-use), like _any_ of them. In a lot of applications this is not a big deal, you can just define some environment variables just like I defined `MAILTO` above, and you're set. 
+Right now you might be thinking, _"My environment is already set up! Right?"_. This is when using cron starts to become a little non-trivial; cron does not know about your [enviorment variables](http://stackoverflow.com/questions/2229825/where-can-i-set-environment-variables-that-crontab-will-use), like _any_ of them. In a lot of applications this is not a big deal, you can just define some environment variables just like I defined `MAILTO` above, and you're set.
 
-But, if you're in astronomy one of your default software tools is likely IRAF/PyRAF. This takes installing software and declaring environment variables to an entirely new level of difficulty. I spent _weeks_ working on the problem of getting cron to run in an IRAF/PyRAF compatible environment without any success. I tried half a dozen different approaches and talked to several people, all of who confessed to giving up due to the same complication. In the end, I partnered with one of our best IT people and we came up with a solution. The first step of that solution is to use Ureka. 
+But, if you're in astronomy one of your default software tools is likely IRAF/PyRAF. This takes installing software and declaring environment variables to an entirely new level of difficulty. I spent _weeks_ working on the problem of getting cron to run in an IRAF/PyRAF compatible environment without any success. I tried half a dozen different approaches and talked to several people, all of who confessed to giving up due to the same complication. In the end, I partnered with one of our best IT people and we came up with a solution. The first step of that solution is to use Ureka.
 
 [Ureka](http://ssb.stsci.edu/ureka/) is a software package developed by STScI and Gemini. From the website:
 
@@ -62,19 +61,20 @@ So now we have our automation tool, cron, and our environment setup with Ureka. 
 
 Like we just saw, you can run more than one script on a single line in cron. You can start the Ureka environment with the command `ur_setup` and exit with `ur_forget`. So I _thought_ the following command would have been enough to run our scripts:
 
-  	00 11 * * * ur_setup && my_second_script.py > /dev/null
+   00 11 * * * ur_setup && my_second_script.py > /dev/null
 
 But it doesn't work. Somehow this does not run `my_second_script.py` using the environment set up by `ur_setup`, my guess is that each script is launched in an independent shell that doesn't propagate variables back to the parent cron environment. This independence is generally a desirable feature so that makes sense, though it makes life hard in our case. This is where everyone I talked to crashed and burned when trying to use cron to automate astronomy software, whether they were using Ureka or not. But eventually one of our IT specialists worked out a wrapper script:
 
-	:::sh
-	#!/bin/tcsh
-	ur_setup
-	"$*"
+ :::sh
+ #!/bin/tcsh
+ ur_setup
+ "$*"
 
 It's non-intuitive at first but what it does it runs `ur_setup` and then takes a script name as a command line argument and runs that script. Because this is all done in the same shell session the script is launched in the Ureka environment - _finally_. I can't tell you how happy I was to finally get this to work. The execution looks like this:
 
-  	00 11 * * * cron_setup.sh my_second_script.py > /dev/null
+   00 11 * * * cron_setup.sh my_second_script.py > /dev/null
 
 ### Done, Right?
 
 That was a bit of a long post, and you might be tempted to call it quits and just run with this setup, but I would encourage you not to. We still have to talk about a deployment solution for your code using your version control system (because your code is version controlled right?), using Python to wrap code written in other languages, using the Python logging module to generate logs. Doesn't that sound nice? I'll put the link to all that right [here] once it's ready.
+

@@ -1,10 +1,9 @@
 ---
-title: What The F*ck Is The Internet Vol. 1:  Bits, Encoding, Packets, and Protocols
-date: 2017-03-17
-tags: python, presentations
+title: 'What The F*ck Is The Internet Vol. 1 -  Bits, Encoding, Packets, and Protocols'
+date: 2017-03-17T00:00:00.000Z
+tag: 'python, presentations'
 authors: acv
 ---
-
 I organize a weekly series of tech talks at work. It's a good way to stay up on what technologies people are using in and out of the office. Recently, I've started presenting at these talks on various computer science fundamentals I was never exposed to in college, using the presentation as a driver to read up on these topics.
 
 Last winter I read a [short book on cryptography](https://www.amazon.com/Cryptography-Short-Introduction-Fred-Piper/dp/0192803158) and gave a presentation on various [historical cyphers](https://en.wikipedia.org/wiki/History_of_cryptography) as a way to provide a context for modern cryptographic techniques (there were no slides). The theme was basically, "we tied this and it didn't work for this reason so now we do this instead".
@@ -15,4 +14,5 @@ I followed that up a few weeks ago with a presentation on basic networking. And 
 
 Hopefully, I'll be able to follow this up later in the spring with another presentation digging into how network messages are routed using IP address and sockets.
 
-Meanwhile, as my experience of being a self-taught software engineer becomes increasingly common it's good to see new resources springing up as more developers try to fill in our knowledge gaps. I particularly liked this site which popped up on Hacker News this week: https://teachyourselfcs.com/
+Meanwhile, as my experience of being a self-taught software engineer becomes increasingly common it's good to see new resources springing up as more developers try to fill in our knowledge gaps. I particularly liked this site which popped up on Hacker News this week: <https://teachyourselfcs.com/>
+

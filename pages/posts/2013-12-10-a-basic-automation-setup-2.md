@@ -1,13 +1,12 @@
 ---
-title: A Basic Automation Setup for Astronomy: Part 2
-date: 2013-12-10
-tags: code, devops, python
+title: A Basic Automation Setup for Astronomy - Part 2
+date: 2013-12-10T00:00:00.000Z
+tag: 'code, devops, python'
 author: acv
 ---
-
 ### Why Log Files?
 
-Let's put on our imagining caps. Pretend that you have already set up an automated pipeline like the one I described in the first post in this series (In fact some people already have). One day your boss walks into your office and asks for some details on about something you pipeline made 6 months ago. Maybe they want to know what input files were used. Or what settings and options were used. Or Maybe they want to reproduce a figure. How would you do that? 
+Let's put on our imagining caps. Pretend that you have already set up an automated pipeline like the one I described in the first post in this series (In fact some people already have). One day your boss walks into your office and asks for some details on about something you pipeline made 6 months ago. Maybe they want to know what input files were used. Or what settings and options were used. Or Maybe they want to reproduce a figure. How would you do that?
 
 Something that I think sometimes gets lost when you start to transfer you work to a more automated work flow is our old friend the lab notebook. For any data products your automation platform produces you should be able to tell someone exactly what inputs were used, what software, and even what version of your software. Ideally, someone should even be able to figure this out for themselves. Log files are a great way to accomplish this type of detailed record keeping, essentially generating an automated lab notebook. Here is an example output from one of my scripts:
 
@@ -24,7 +23,7 @@ Something that I think sometimes gets lost when you start to transfer you work t
 ...
 ```
 
-With the command line `grep` utility you can quickly start to look for trends. If you want to do even more you can explore the Pandas Python package, more on that in a later post. 
+With the command line `grep` utility you can quickly start to look for trends. If you want to do even more you can explore the Pandas Python package, more on that in a later post.
 
 ### Getting Started with the Python Logger
 
@@ -54,7 +53,7 @@ def log_info(func):
     """Decorator to log some useful environment information."""
     def wrapped(*a, **kw):
 
-    	# Log user, system, and Python metadata
+     # Log user, system, and Python metadata
         logging.info('User: ' + getpass.getuser())
         logging.info('System: ' + socket.gethostname())
         logging.info('Python Version: ' + sys.version.replace('\n', ''))
@@ -71,18 +70,19 @@ def log_info(func):
         hours_time, remainder_time = divmod(t2_time - t1_time, 60 * 60)
         minutes_time, seconds_time = divmod(remainder_time, 60)
         logging.info('Elapsed Real Time: {0:.0f}:{1:.0f}:{2:f}'.\
-        	format(hours_time, minutes_time, seconds_time))
+         format(hours_time, minutes_time, seconds_time))
     return wrapped
 ```
+
 You script would then looks like this:
 
 ```python
 @log_info
 def main():
-	"""My main function."""
-	make_science()
+ """My main function."""
+ make_science()
 
 if __name__ == '__main__':
-	main()
+ main()
 ```
 

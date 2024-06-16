@@ -1,7 +1,7 @@
 ---
 title: Faster File Existence Testing with Sets
 date: 2014-01-19
-tags: python, code
+tag: python, code
 author: acv
 ---
 

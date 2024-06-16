@@ -1,7 +1,7 @@
 ---
 title: The First Thousand PSFs
 date: 2013-11-20
-tags: wfc3, psf, uvis, plots
+tag: wfc3, psf, uvis, plots
 author: acv
 ---
 

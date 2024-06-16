@@ -1,7 +1,7 @@
 ---
 title: The Data are Inconclusive 
 date: 2013-11-21
-tags: psf
+tag: psf
 author: acv
 ---
 

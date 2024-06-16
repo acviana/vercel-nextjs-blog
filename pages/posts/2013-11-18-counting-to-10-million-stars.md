@@ -1,7 +1,7 @@
 ---
 title: Counting to 10 Million Stars
 date: 2013-11-18
-tags: wfc3, psf, uvis, plots, code, python
+tag: wfc3, psf, uvis, plots, code, python
 author: acv
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Writing a FITS File Bigger Than Your Memory
 date: 2014-04-08
-tags: fits, python, code
+tag: fits, python, code
 author: acv
 ---
 

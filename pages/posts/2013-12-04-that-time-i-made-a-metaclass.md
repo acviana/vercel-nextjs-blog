@@ -1,7 +1,7 @@
 ---
 title: That Time I Made a Metaclass
 date: 2013-12-04
-tags: code, python, database
+tag: code, python, database
 author: acv
 ---
 

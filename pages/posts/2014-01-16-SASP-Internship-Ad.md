@@ -1,7 +1,7 @@
 ---
 title: 2014 Summer Internship Opportunity
 date: 2014-01-16
-tags: mtpipeline
+tag: mtpipeline
 author: acv
 ---
 

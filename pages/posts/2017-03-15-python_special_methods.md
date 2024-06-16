@@ -1,7 +1,7 @@
 ---
 title: Special Methods in Python
 date: 2017-03-15
-tags: python, presentations
+tag: python, presentations
 author: acv
 ---
 

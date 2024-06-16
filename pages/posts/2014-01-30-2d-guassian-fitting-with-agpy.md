@@ -1,7 +1,7 @@
 ---
 title: Fitting 2D Gaussians with agpy
 date: 2014-01-30
-tags: python, code, psf, uvis, wfc3, milestones, plots, hst
+tag: python, code, psf, uvis, wfc3, milestones, plots, hst
 author: acv
 ---
 
