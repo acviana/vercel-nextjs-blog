@@ -1,9 +1,10 @@
+---
 title: Guilty As Charged
 date: 2013-12-19
 tags: git, humor
 Slug: guilty-as-charged
 Author: Alex C. Viana
-
+---
 
 Earlier this month the wonderful Randall Munroe at XKCD posted this great [strip](http://xkcd.com/1296/) poking fun at the decrease in commit message quality as a project ages.  
 

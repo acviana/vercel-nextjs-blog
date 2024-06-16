@@ -1,9 +1,10 @@
+---
 title: The Joy of "Screen"
 date: 2013-11-24
 tags: devops
 Slug: the-joy-of-screen
 Author: Alex C. Viana
-
+---
 
 Because I frequently work remotely as well as run long processes I recently gave up my desktop system at work in exchange for a laptop and a couple of virtual machines. I use the laptop for day-to-day work but offload longer computations or automated processes to my VMs. But before I could fully take advantage of this setup  I had to solve a new problem I didn't have to worry about with my desktop, how do I run a process remotely without maintaining an open SSH connection? 
 

@@ -1,9 +1,10 @@
+---
 title: Faster File Existence Testing with Sets
 date: 2014-01-19
 tags: python, code
 Slug: faster-file-checking-with-sets
 Author: Alex C. Viana
-
+---
 
 ### It's Time to Think about Performance
 

@@ -1,9 +1,11 @@
+---
 title: An Intro to Regex
 date: 2017-05-10
 Category:
 tags:presentations
 Slug: an-intro-to-regex
 Authors: Alex C. Viana
+---
 
 <center>
 ![alt text](https://dl.dropboxusercontent.com/s/7yhsckbmoairs7o/mother-and-daughter-talk-e1447834530360.jpg?dl=0)

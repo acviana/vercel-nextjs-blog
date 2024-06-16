@@ -1,10 +1,11 @@
+---
 title: A Basic Automation Setup for Astronomy: Part 2
 date: 2013-12-10
 tags: code, devops, python
 Slug: a-basic-automation-setup-2
 Author: Alex C. Viana
-
 Status: draft
+---
 
 ### Why Log Files?
 

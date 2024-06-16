@@ -1,9 +1,12 @@
+---
+
 title: Special Methods in Python
 date: 2017-03-15
 Category: Python
 tags: python, presentations
 Slug: special-methods-in-python
 Authors: Alex C. Viana
+---
 
 _This post is intended to accompany a presentation I gave to the [Baltimore Python Meetup](https://www.meetup.com/baltimore-python/events/238058777/) on Wednesday, March 15th 2017._
 

@@ -1,9 +1,10 @@
+---
 title: A Basic Automation Setup for Astronomy: Part 1
 date: 2013-11-23
 tags: code, devops
 Slug: a-basic-automation-setup
 Author: Alex C. Viana
-
+---
 
 For one of my projects at work I engineered an automation platform for one of our instrument teams. This platform allows us to automatically execute 20+ daily scripts, written in a variety of programming languages, as data is coming down from the telescope. All the scripts for our team, from the downloading the data, copying and indexing the data in an SQL database, running in-house scripts, and system self-diagnostics run on the same automation platform. Adding a script to this platform requires as little as 4 lines of code. Our codebase is updated with hourly builds from our team of 6 developers and all execution and maintenance is performed via a service account on a Linux Red Hat virtual machine.
 

@@ -1,9 +1,10 @@
+---
 title: Fitting 2D Gaussians with agpy
 date: 2014-01-30
 tags: python, code, psf, uvis, wfc3, milestones, plots, hst
 Slug: fitting-2d-gaussians-with-agpy
 Author: Alex C. Viana
-
+---
 
 **Update 01/30/2014:** Adam has split his `gaussfitter` code off into it's own GitHub repository [here](https://github.com/keflavich/gaussfitter/blob/master/gaussfitter/gaussfitter.py) (_"PR's Welcome!"_). This removes some dependencies and changes the import statement but as of right now everything else is the same. I've maintained the old links to the original agpy repo in the post below but please use the above repo for the latest version.
 
