@@ -1,10 +1,9 @@
+---
 title: Setting Up Pelican with GitHub Pages
-date: 2017-02-25
-Category: Python
-tags: python, pelican, github
-Slug: setting-up-pelican-with-github-pages
-Authors: Alex C. Viana
-
+date: 2017-02-25T00:00:00.000Z
+tag: 'python, pelican, github'
+author: acv
+---
 This is a short post about how I set up my pelican project to deploy with GitHub pages. Specifically, I want to version control both the output static pages that are being served as well as the source Markdown files used to generate the output. What I ended up isn't novel but it did take me a while to wrap my head around and wasn't highlighted in any of the documentation or blog posts I found so I wanted to share. Hopefully, it can save you some time.
 
 # Introduction
@@ -57,3 +56,4 @@ So initially, about 4 years ago, I modeled a lot of my pelican configuration and
 Actually, what Jake does is better than my setup. He has a git repo at the root level so all his config settings are saved, with a .gitignore file the ignores the `output/` directory which I'm assuming contains another git repo which he uses for deployment. Nested git repos, neat!
 
 Like I said, this isn't anything most people couldn't have figured out on their own eventually it took me longer than it should have so hopefully this saves you some time.
+
