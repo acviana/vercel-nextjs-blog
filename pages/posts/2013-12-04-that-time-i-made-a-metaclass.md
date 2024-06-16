@@ -2,8 +2,7 @@
 title: That Time I Made a Metaclass
 date: 2013-12-04
 tags: code, python, database
-Slug: that-time-i-made-a-metaclass
-Author: Alex C. Viana
+author: acv
 ---
 
 > "If you don't know what a metaclass is you don't need to use one."  

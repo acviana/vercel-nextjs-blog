@@ -1,10 +1,8 @@
 ---
 title: An Intro to Regex
 date: 2017-05-10
-Category:
 tags:presentations
-Slug: an-intro-to-regex
-Authors: Alex C. Viana
+authors: acv
 ---
 
 <center>

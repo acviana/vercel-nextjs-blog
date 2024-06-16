@@ -2,8 +2,7 @@
 title: Working with NumPy Arrays and SQL
 date: 2014-04-07
 tags: python, code, psf
-Slug: numpy-arrays-and-sql
-Author: Alex C. Viana
+author: acv
 ---
 
 Lately I've been doing a lot (millions) of calculations involving small NumPy arrays of HST PSFs. Naturally, I wanted to save the output of these calculations to for later analysis. I put all the results in a MySQL database so I could easily select subsets of the data for future work (by filter, image, date, etc.). However, sometimes the outputs of these calculations are arrays themselves. This left me searching for a good way to save these NumPy arrays to a SQL database. 

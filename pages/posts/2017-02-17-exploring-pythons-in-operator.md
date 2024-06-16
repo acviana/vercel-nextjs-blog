@@ -1,11 +1,8 @@
 ---
 title: Exploring Python's 'in' operator
 date: 2017-02-17
-Category: Python
 tags: python
-Slug: exploring-pythons-in-operator
-Authors: Alex C. Viana
-Status: draft
+author: Alex C. Viana
 ---
 
 
