@@ -1,13 +1,14 @@
 ---
 title: The First Thousand PSFs
 date: 2013-11-20
-tag: wfc3, psf, uvis, plots
+description: Plotting one thousand stellar PSFs
+tag: astronomy, "github-blog"
 author: acv
 ---
 
 In my last post on my PSF Project I characterized the PSF shape by fitting a 1-D Gaussian to the a row and column slice through the central pixel. In this post I start to think about how to characterize entire images with thousands of stars.
 
-### Adding Some Zeros
+## Adding Some Zeros
 
 Many applications for the PSF database involve looking at PSF changes over a time series. One way to do this is to move from characterizing individual PSFs to characterizing the PSFs in an entire image and seeing how that changes over time. [^1] In other words, we need to add some zeros to our lone star and start working our way towards our final dataset of 10 million. I decided to do this by digging into the first stellar field I could find. This happened to be `iabj01a2q_flt.fits` an image of [NGC104](http://en.wikipedia.org/wiki/47_Tucanae) which adds 3 more zeros to our star total, bringing it to roughly 1,500 stars. Here is the image, it's actually quite nice (sorry for the large file):
 
@@ -15,7 +16,7 @@ Many applications for the PSF database involve looking at PSF changes over a tim
 
 In case you want to play along at home, this image is in the public domain and can be found [here](http://archive.stsci.edu/cgi-bin/mastpreview?mission=hst&dataid=IABJ01A2Q). 
 
-### Plotting the PSF Fits
+## Plotting the PSF Fits
 
 So I went ahead and fitted a Gaussian in both the row and column directions for all the stars in that image. Then I studied the distribution by plotting the fit parameters against each other in each slice.
 
@@ -25,7 +26,7 @@ First of all, in hindsight what I wanted was a [scatter plot matrix](https://www
 
 In terms of the actual data, we don't see anything noticeably different between the row and column slices, which is expected at this point, though there there may be directionally-dependent instrumental effects, such as the charge transfer efficiency, which may come into play later. Looking at the individual fit parameters there's not much going on with the amplitude but things get interesting when we plot the standard deviation against the mean (`mu`). However, the correlation we're seeing in the plot is actually a sampling effect. 
 
-### Interpreting the Results
+## Interpreting the Results
 
 Let's start by explaining what `sigma` and `mu` mean in this context (it might be helpful to refer to my [last post](http://acviana.github.io/posts/2013/11/18/counting-to-10-million-stars/)). First of all, `mu`, the mean of the Gaussian fit is almost always between 4.5 and 5.5. This is by design because the algorithm that centers the PSF cutouts does a good job of picking the brightest pixel. `sigma` then is a measure of the width of the PSF. 
 
@@ -33,7 +34,7 @@ The actual energy distribution of a star is a continuous distribution. However, 
 
 I think this is supported by the fact that as you move away from the middle of the central pixel (`mu` = 5) the distribution of `sigma` for a given mean moves up (gets wider) in an absolute sense, but not in a relative sense. Put another way, the width of you PSF increases the further the peak is from the central pixel, but the difference between a peaked and broad PSF at any given mean is about the same.
 
-### What's Next?
+## What's Next?
 
 The next step is pretty clear, we need to use this distribution of parameters to characterize the "average" PSF shape in each image and plot that as a time series. This will almost certainly yield nothing but noise, but I'm confident that as we tease the data out such as separating each filter or different parts of the detector we'll start to see some real trends.
 

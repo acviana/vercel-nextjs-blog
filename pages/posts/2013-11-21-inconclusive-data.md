@@ -1,7 +1,8 @@
 ---
 title: The Data are Inconclusive 
 date: 2013-11-21
-tag: psf
+Description: Error bars change the interpretation of my stellar PSF project
+tag: astronomy
 author: acv
 ---
 
