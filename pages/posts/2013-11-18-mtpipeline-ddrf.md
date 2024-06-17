@@ -1,10 +1,10 @@
 ---
 title: The Moving Target Pipeline
+description: My reaseach grant proposal for a Hubble Space Telescope moving target pipeline
 date: 2013-11-18
-tag: mtpipeline, milestones, wfc3, acs, hst, jwst, wfpc2
+tag: astronomy, "github-blog"
 author: acv
 ---
-
 
 A few weeks ago I was awarded an research grant to continue working on a prototype software pipeline for HST moving target (solar system) observations. The grant came from an internal source called the Director's Discretionary Research Fund (DDRF). My project, called the Moving Target Pipeline, was fully funded at $21,000 and allows me to buy back 25% of my time for one year to work on the project. Here is the proposal abstract:
 

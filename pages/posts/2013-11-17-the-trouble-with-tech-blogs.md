@@ -1,7 +1,8 @@
 ---
 title: The Trouble with Tech Blogs
-date: 2013-11-17T00:00:00.000Z
-tag: pelican
+description: Starting a Pelican-based GitHub blog
+date: 2013-11-17
+tag: pelican, meta, "github-blog"
 author: acv
 ---
 > the trouble with poetry is  
