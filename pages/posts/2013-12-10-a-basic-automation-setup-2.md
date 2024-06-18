@@ -1,10 +1,12 @@
 ---
 title: A Basic Automation Setup for Astronomy - Part 2
-date: 2013-12-10T00:00:00.000Z
+date: 2013-12-10
 tag: 'code, devops, python'
+description: Part 2 of a automation pipeline for astronomy tasks
 author: acv
 ---
-### Why Log Files?
+
+## Why Log Files?
 
 Let's put on our imagining caps. Pretend that you have already set up an automated pipeline like the one I described in the first post in this series (In fact some people already have). One day your boss walks into your office and asks for some details on about something you pipeline made 6 months ago. Maybe they want to know what input files were used. Or what settings and options were used. Or Maybe they want to reproduce a figure. How would you do that?
 
@@ -25,7 +27,7 @@ Something that I think sometimes gets lost when you start to transfer you work t
 
 With the command line `grep` utility you can quickly start to look for trends. If you want to do even more you can explore the Pandas Python package, more on that in a later post.
 
-### Getting Started with the Python Logger
+## Getting Started with the Python Logger
 
 Python has a great [logging](http://docs.python.org/2/library/logging.html) module. You can find a basic tutorial [here](http://docs.python.org/2/howto/logging.html#logging-basic-tutorial). There are lots of ways to invoke and setup the Python logger. I usually define a function something like this and import it throughout my project.
 
@@ -46,7 +48,7 @@ def setup_logging(module):
 
 What this does is it will create a separate log directory for each module and the log the outputs in a date-stamped file, e.g. `/my-project/logs/my_module/my_module_2013-12-22-15-41.log`. Every line in the log file will then begin with a date and time stamp, followed by the level name and then the logging message, similar to the output I showed in the last section. Lastly, I tell it to log all statements down to the "INFO" level.
 
-### A Logging Recipe
+## A Logging Recipe
 
 ```python
 def log_info(func):
