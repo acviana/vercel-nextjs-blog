@@ -1,7 +1,8 @@
 ---
 title: Guilty As Charged
 date: 2013-12-19
-tag: git, humor
+description: Just a little git humor
+tag: programming, humor
 author: acv
 ---
 
