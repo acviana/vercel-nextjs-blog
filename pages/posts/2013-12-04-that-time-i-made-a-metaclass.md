@@ -1,7 +1,8 @@
 ---
 title: That Time I Made a Metaclass
 date: 2013-12-04
-tag: code, python, database
+tag: programming, python
+description: "I made a metaclass in Python (but should I have?)" 
 author: acv
 ---
 
@@ -10,7 +11,7 @@ author: acv
 
 I was shooting some messages back and forth this morning with some current and former coworkers on Twitter on the topic of Python Metaclasses. One coworker said metaclasses was something he'd never really got around to using. I mentioned that I had used them exactly once to generate database Object Relational Models (ORMs). My second coworker said that was a common use case and that it would be nice to see an example. Since a tech blog is a shining example of a hammer searching for a nail I immediately got to work on this post.
 
-### Some Background
+## Some Background
 
 I took David Beazley's Python Master class in 2009 (?) and I still remembered the quote from the start of this post, so for years I didn't worry about metaclasses because I knew I didn't need them. Finally though, I did need them.
 
@@ -33,11 +34,11 @@ class MyTable(Base):
 
 You could imagine an application that would need to dynamically define several of these tables, but you don't have to because I'm about to tell you about one. 
 
-### My Problem
+## My Problem
 
 The most common image file format in astronomy is called [FITS](http://en.wikipedia.org/wiki/FITS). FITS files have multiple layers (called "extensions") each with it's own set of metadata (called "headers"). For one of my projects we have over a million FITS files and we index these files with a MySQL database that maps the header keywords in the extensions to fields in SQL tables. We have about a dozen different file types, each with a handful of extensions, and each of those has 10s of header keywords. If you spelled out every ORM explicitly with a class and an attribute for every column like we do above we would literally have thousands of rows of ORM definitions. I'm a big proponent of the DRY principle (Don't Repeat Yourself) for the sake of readability and maintainability so this was a pretty big red flag in my opinion. 
 
-### My Solution
+## My Solution
 
 Notice that we don't need to dynamically create many instances of the same class. Instead we need to dynamically create many class definitions. This is the specific need the drove me to use a metaclass.I ended up with something like the code snippet below. 
 
@@ -66,7 +67,7 @@ Class3 = orm_factory('Class3')
 
 And there you have your classes, dynamically created using metaclasses.
 
-### Solution Breakdown
+## Solution Breakdown
 
 Let's walk through this. First, let's look at the last line for the `orm_factory` function. This is maybe the "craziest" part of the whole function. That's because `type` is actually a metaclass constructor. That's right, the thing that tells you `type(1)` is `int` is also used as a metaclass constructor to maintain backward comparability [^1]. (If you want to tickle your brain check the type of type). To really wrap your head around metaclasses and type check out Jake VanderPlas's [excellent post](http://jakevdp.github.io/blog/2012/12/01/a-primer-on-python-metaclasses/) on the subject. 
 
