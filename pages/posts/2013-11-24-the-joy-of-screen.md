@@ -2,7 +2,7 @@
 title: The Joy of "Screen"
 date: 2013-11-24
 description: Using the screen command line untility to manage remote sessions
-tag: devops
+tag: devops, "github-blog"
 author: acv
 ---
 
@@ -45,6 +45,5 @@ And that's it. Go ask your IT department very nicely if they can build you a VM 
 [^1]: If you're going to do any serious DevOps work make friends with you IT staff. Ask them for help nicely and thank them profusely. Buy them beers. A good relationship with your sys admins in invaluable to getting sh*t done. This really shouldn't even be a footnote.
 
 [^2]: Screen is inconsistently capitalized in the websites and blogs I saw. I decided to follow the convention in the GNU [docs](https://www.gnu.org/software/screen/) and treat it as a proper noun. I bring this up here because this is the first place in this post where Screen isn't capitalized because it starts a sentence. I also bring it up because I'm a nerd.
-
 
 [^3]: Depending on your version of `top` you can type `u` on the main screen and then your username to view all the processes being run by your user name. Given that `top` shows all the system processes this helps remove all the ones you don't care about.

@@ -1,7 +1,8 @@
 ---
 title: 'What The F*ck Is The Internet Vol. 1 -  Bits, Encoding, Packets, and Protocols'
-date: 2017-03-17T00:00:00.000Z
-tag: 'python, presentations'
+date: 2017-03-17
+description: "A short presentation about how data is encoded over networks"
+tag: python, programming, presentations
 authors: acv
 ---
 I organize a weekly series of tech talks at work. It's a good way to stay up on what technologies people are using in and out of the office. Recently, I've started presenting at these talks on various computer science fundamentals I was never exposed to in college, using the presentation as a driver to read up on these topics.

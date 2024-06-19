@@ -2,7 +2,7 @@
 title: A Basic Automation Setup for Astronomy - Part 1
 date: 2013-11-23
 description: A barebones automation setup for astronomy pipelines
-tag: programming, devops, astronomy
+tag: programming, devops, astronomy, "github-blog"
 author: acv
 ---
 

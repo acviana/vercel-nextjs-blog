@@ -1,7 +1,7 @@
 ---
 title: That Time I Made a Metaclass
 date: 2013-12-04
-tag: programming, python
+tag: programming, python, "github-blog"
 description: "I made a metaclass in Python (but should I have?)" 
 author: acv
 ---

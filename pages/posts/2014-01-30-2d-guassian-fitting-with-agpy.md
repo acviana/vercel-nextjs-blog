@@ -1,14 +1,14 @@
 ---
 title: Fitting 2D Gaussians with agpy
 date: 2014-01-30
-tag: python, code, psf, uvis, wfc3, milestones, plots, hst
+description: "Fitting 2 dimensionaly Gaussians with a small open source package"
+tag: python, programming, "github-blog", astronomy
 author: acv
 ---
 
 **Update 01/30/2014:** Adam has split his `gaussfitter` code off into it's own GitHub repository [here](https://github.com/keflavich/gaussfitter/blob/master/gaussfitter/gaussfitter.py) (_"PR's Welcome!"_). This removes some dependencies and changes the import statement but as of right now everything else is the same. I've maintained the old links to the original agpy repo in the post below but please use the above repo for the latest version.
 
 - - -
- 
 
 After some [initial work](http://acviana.github.io/posts/2013/counting-to-10-million-stars/) with fitting WFC3 UVIS PSFs with 1D Gaussians through the x and y axis I decided to look at 2d Guassian fitting as well. I was disappointed to find there wasn't already a canned procedure to do this in something like SciPy. But after some digging I decided to use [Adam Ginsburg's](http://casa.colorado.edu/~ginsbura/) personal agpy library. I briefly met Adam at the [dotAstronomy](http://dotastronomy.com/) conference last year in Boston. He's a contributor to [AstroPY](http://www.astropy.org/), [AstroQuery](http://astroquery.readthedocs.org/en/latest/), and [AplPy](http://aplpy.github.io/) so I had a hunch I could trust his code and it's worked out great. 
 
@@ -17,8 +17,11 @@ You can clone the repo [here](https://github.com/keflavich/agpy). There are a co
 ```python
 from agpy import gaussfitter
 
-mpfit, psf_fit = gaussfitter.gaussfit(psf_array, returnmp=True, 
-									  returnfitimage=True)
+mpfit, psf_fit = gaussfitter.gaussfit(
+    psf_array,
+    returnmp=True, 
+    returnfitimage=True
+)
 ```
 Using `gaussfit` without the `returnmp` or `returnfitimage` parameters just returns a list with the following model parameters (in order): 
 
@@ -36,4 +39,4 @@ It took me a little bit of work to figure out all these outputs but they were ex
 
 Finally, I made a plot of the input data, the model, and the residual (difference) at two different scales. I'm definitely happy with this and am looking forward to digging into the covariance matrix a little more to really understand how well I'm fitting these PSFs.
 
-<img style="width: 800px; max-width: 100%; height: auto;" alt="Oops, something broke." src="/images/2d-gaussians.png" />
+<imgß style="width: 800px; max-width: 100%; height: auto;" alt="Oops, something broke." src="/images/2d-gaussians.png" />

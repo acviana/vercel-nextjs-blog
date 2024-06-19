@@ -1,7 +1,7 @@
 ---
 title: Counting to 10 Million Stars
 date: 2013-11-18
-tag: astronomy, python, programming
+tag: astronomy, python, programming, "github-blog"
 author: acv
 ---
 
