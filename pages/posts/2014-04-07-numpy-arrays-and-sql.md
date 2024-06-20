@@ -1,6 +1,7 @@
 ---
 title: Working with NumPy Arrays and SQL
 date: 2014-04-07
+description: 
 tag: python, code, psf
 author: acv
 ---
@@ -9,13 +10,13 @@ Lately I've been doing a lot (millions) of calculations involving small NumPy ar
 
 Before I dive into this it's worth noting that there are non-SQL storage options that are specifically designed for use cases like this such as [PyTables](http://www.pytables.org/moin) or [HDF5](http://en.wikipedia.org/wiki/Hierarchical_Data_Format). But, my project was already pretty tightly integrated with SQLAlchemy and I wasn't concerned with having readable, hierarchical, or queryable array information, which are the strengths of these other storage systems as I understand them. The queries I'm going to write are going to be constructed on other fields and the data is only going to analyzed once it had been read back in as a Numpy array in Python. So, all I really needed was a way to go between NumPy and some SQL data type.  
 
-### Starting with Strings
+## Starting with String 
 
 So my first thought was to just flatten the array into a string and then write that to the database as a `VARCHAR` field. So something like this:
 
 ```python
 a = np.array([[1,2],[3,4]])
-``` 
+```
 
 Which gives us:
 
@@ -38,13 +39,14 @@ string_array = str(numpy_array.flatten().tolist())[1:-1]
 
 And on top of that you have to convince yourself that you are always reading and writing your strings in the correct order in terms of left/right and up/down, which means writing more tests. This quickly started to not feel right to me, especially if the end result was a human-readable SQL field that was never going to be read by a human while in the database.
 
-### Moving to Bytecode
+## Moving to Bytecode
 
 After some digging and things I switched to bytecode. This isn't human readable (which is fine) but it easily and consistently goes in and out of numpy arrays with built-in methods and sits nicely in a SQL `BLOB` field. Writing looks like this:
 
 ```python
 byte_array = numpy_array.tostring()
 ```
+
 Which gives me:
 
 ```python

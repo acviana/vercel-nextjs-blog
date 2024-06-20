@@ -1,7 +1,8 @@
 ---
 title: 2014 Summer Internship Opportunity
 date: 2014-01-16
-tag: mtpipeline
+description: Call for submissions for my internship opportunity at STScI
+tag: astronomy, "github-blog"
 author: acv
 ---
 
