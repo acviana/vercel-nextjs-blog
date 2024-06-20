@@ -1,7 +1,8 @@
 ---
 title: Writing a FITS File Bigger Than Your Memory
 date: 2014-04-08
-tag: fits, python, code
+description: Getting in the weeds with the FITS file format
+tag: astronomy, programming, python, "github-blog"
 author: acv
 ---
 
@@ -18,7 +19,7 @@ _"The annoying thing about writing software is that people can just add zeros an
 
 So even thought it was exciting that my dataset had grown to the point that it couldn't all fit in memory at once, I was now faced with the problem of how to create a FITS file from a NumPy array that's too big to fit in memory?
 
-### Reading the Docs
+## Reading the Docs
 
 I work with FITS files using the Astropy `io.fits` [module](http://astropy.readthedocs.org/en/latest/io/fits/index.html). For those of you familiar with PyFITS you'll find that the code in Astropy has been wholly migrated over from PyFITS so the functionality is currently identical. So much so that you can still use the PyFITS docs to understand Astropy's `io.fits`. This is great because the PyFITS FAQ explicitly answers this question: [How can I create a very large fits file from scratch?](http://pyfits.readthedocs.org/en/latest/appendix/faq.html#how-can-i-create-a-very-large-fits-file-from-scratch). Go ahead and read that section. 
 
@@ -41,7 +42,7 @@ with open(fits_file_name, 'rb+') as fobj:
 
 The FAQ got me 80% of the way there and Erik helped me connect the dots. It's worth walking though this for this last 20% as well as an explanation of what exactly is going on.
 
-### Hacking the Header
+## Hacking the Header
 
 ```python
 data = np.zeros((1, 1, 1), dtype=np.float32)
@@ -55,7 +56,7 @@ header.tofile(fits_file_name, clobber=True)
 
 To being with I create a dummy NumPy array just to get the FITS dimensionality right. As we keep going you'll see why we didn't just create the HDU with an array the size of our expected output in the first place. Then I create a `PrimaryHDU` instance with that NumPy array. Under the hood the `fits` module is using this to set up some basic elements of the FITS file format. But this is all being done in-memory, I haven't written anything to the disk yet. Next I changes the `NAXIS` keywords required by the FITS standard to match those of our expected output and not those of our dummy NumPy array. Changing this keyword doesn't do anything to actually change the dimensions or size of the file, those were set by our initial NumPy array. But it does update our header to match the data we'll be putting in. To wrap this up I use the `tofile` method to write _only the FITS header_ to the disk with not actual data following it. PyFITS generally won't let you write an invalid FITS file, in this case it would complain that the `NAXIS` values don't match the 1 x 1 x 1 array we used to create the file, but we _can_ write just the header as we're doing here. The clobber option overwrites the file if it already exists. 
 
-### Hacking the Data
+## Hacking the Data
 
 ```python
 header_length = len(header.tostring())
@@ -85,8 +86,7 @@ But what about the `- 1` at the end? Well I go back just one byte from the end t
 
 Note that what we've created is called a [sparse file](http://en.wikipedia.org/wiki/Sparse_file) and how it's implemented will depend on your file system. Certain file systems will just add some metadata letting the system know that it's just blank space, whereas other file systems such as Apple's HFS+ will go through and write each "blank" byte which will take just as long as writing real data.
 
-
-### (Finally) Writing the Data
+## (Finally) Writing the Data
 
 ```python
 with fits.open(fits_file_name, mode='update') as hdlu:
@@ -103,7 +103,7 @@ What's happening is that the `fits` module is by default opening the file with [
 
 Next I step through the data I want to add to the FITS file in chunks that easily fit in memory. I wrote some generic code that does this by stepping over some indices and passing them to a function `get_data_chunk` that returns the next "chunk" of records as a NumPy array. I index the FITS data just like a NumPy array (because it is one) and then update it with the chunk from my current data cube. Iterating over this eventually write the entire file without ever needing to store the entire FITS data in memory at once.
 
-### One More Thing
+## One More Thing
 
 Erik pointed out that there is a little-known feature in PyFITS called the [StreamingHDU](https://github.com/spacetelescope/PyFITS/blob/master/lib/pyfits/hdu/streaming.py) class. It's an alternative way to make a FITS file on disk just by outputting the header and then writing the data one chunk at a time: http://pyfits.readthedocs.org/en/latest/api_docs/api_hdus.html#streaminghdu
 

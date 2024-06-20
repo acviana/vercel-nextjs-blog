@@ -5,6 +5,7 @@ description: "A short presentation about how data is encoded over networks"
 tag: python, programming, presentations
 authors: acv
 ---
+
 I organize a weekly series of tech talks at work. It's a good way to stay up on what technologies people are using in and out of the office. Recently, I've started presenting at these talks on various computer science fundamentals I was never exposed to in college, using the presentation as a driver to read up on these topics.
 
 Last winter I read a [short book on cryptography](https://www.amazon.com/Cryptography-Short-Introduction-Fred-Piper/dp/0192803158) and gave a presentation on various [historical cyphers](https://en.wikipedia.org/wiki/History_of_cryptography) as a way to provide a context for modern cryptographic techniques (there were no slides). The theme was basically, "we tied this and it didn't work for this reason so now we do this instead".

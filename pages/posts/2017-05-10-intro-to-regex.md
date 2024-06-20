@@ -1,14 +1,15 @@
 ---
 title: An Intro to Regex
-date: 2017-05-10T00:00:00.000Z
-tag: presentations
+date: 2017-05-10
+description: A presentation on using Regex for analysts
+tag: presentations, "github-blog"
 author: acv
 ---
 <center>
 ![alt text](https://dl.dropboxusercontent.com/s/7yhsckbmoairs7o/mother-and-daughter-talk-e1447834530360.jpg?dl=0)
 </center>
 
-# How to Talk to your Analysts about Regex
+## How to Talk to your Analysts about Regex
 
 **Alex Viana - 05/05/17**
 
@@ -32,11 +33,11 @@ Complicated regex patterns like this can be pretty inscrutable even when they ar
 
 Still, regexes are very useful and you can get a lot of mileage out of just a few parts of the regex syntax.
 
-### Testing Regexes
+## Testing Regexes
 
 I highly recommend using the [Regex101 website](regex101.com) to test regexes, both to understand existing expressions and to test expressions you are writing. Try it out to play with the example searches in this tutorial.
 
-### Special Characters
+## Special Characters
 
 As we saw, matching string literals, i.e. patterns that have only one possible match, is trivial:
 
@@ -56,7 +57,7 @@ Pretty meta right? Similarly if you wanted to search for `"google.com"`:
  Matches: "google.com"
  Misses: "anything else"
 
-### Replacing a Single Character
+## Replacing a Single Character
 
 String literals without special characters aren't very useful thought, the power of regex comes from matching patterns. One of the simplest regex patterns is a period (`.`), which means "match any single character in this position". For example:
 
@@ -82,7 +83,7 @@ A common pattern in regex is matching against any letter. This can be done by sp
  Mathes: Any uppercase letter, lowercase letter, or number
  Misses: "!!!"
 
-### Replacing Multiple Characters
+## Replacing Multiple Characters
 
 Using just square brackets will match only character one time, we can also match against a character or set of characters repeatedly by using the curly braces `{}`, where the number in the curly braces indicates the number of times, or range of times, to match.
 
@@ -100,7 +101,7 @@ We can also repeat a variable number of times. To repeat a set between x and y t
  Matches: "113", "123", "133", "1113", "1123", "1333"
  Misses: "13", "143", "1243"
 
-### Word Boundaries
+## Word Boundaries
 
 Another useful pattern is defining the boundaries of what you want to match against. You can do this with any string literal like we did in the section on replacing a single character where the search terms were all bound by a `1` and a `3`. You could bound a match with whitespace using a space ``. More generally you can use the `\b` for any word break. For example
 
@@ -108,7 +109,7 @@ Another useful pattern is defining the boundaries of what you want to match agai
  Matches: "that this that"
  Misses: "thatthisthat"
 
-### Logical Operators
+## Logical Operators
 
 The vertical bar (`|`) is a logical or operator. For example:
 
@@ -116,7 +117,7 @@ The vertical bar (`|`) is a logical or operator. For example:
  Matches: "Katie Perry", "Steve Tyler", "Tyler Perry", "Perry Como"
  Misses: "something else"
 
-### Next Steps
+## Next Steps
 
 There are a lot more you can do with regexes and a lot more syntax to learn but hopefully this was a useful starting point.
 

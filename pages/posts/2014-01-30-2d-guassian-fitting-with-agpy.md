@@ -1,7 +1,7 @@
 ---
 title: Fitting 2D Gaussians with agpy
 date: 2014-01-30
-description: "Fitting 2 dimensionaly Gaussians with a small open source package"
+description: Fitting 2 dimensionaly Gaussians with a small open source package
 tag: python, programming, "github-blog", astronomy
 author: acv
 ---

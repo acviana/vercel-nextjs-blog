@@ -1,7 +1,7 @@
 ---
 title: Working with NumPy Arrays and SQL
 date: 2014-04-07
-description: 
+description: Binary encoding in SQL for NumPy objects
 tag: python, code, psf
 author: acv
 ---
@@ -10,7 +10,7 @@ Lately I've been doing a lot (millions) of calculations involving small NumPy ar
 
 Before I dive into this it's worth noting that there are non-SQL storage options that are specifically designed for use cases like this such as [PyTables](http://www.pytables.org/moin) or [HDF5](http://en.wikipedia.org/wiki/Hierarchical_Data_Format). But, my project was already pretty tightly integrated with SQLAlchemy and I wasn't concerned with having readable, hierarchical, or queryable array information, which are the strengths of these other storage systems as I understand them. The queries I'm going to write are going to be constructed on other fields and the data is only going to analyzed once it had been read back in as a Numpy array in Python. So, all I really needed was a way to go between NumPy and some SQL data type.  
 
-## Starting with String 
+## Starting with String
 
 So my first thought was to just flatten the array into a string and then write that to the database as a `VARCHAR` field. So something like this:
 
