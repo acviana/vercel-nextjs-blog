@@ -1,6 +1,7 @@
 ---
 title: Counting to 10 Million Stars
 date: 2013-11-18
+description: Working with large datasets of stellar PSFs 
 tag: astronomy, python, programming, "github-blog"
 author: acv
 ---
@@ -18,7 +19,6 @@ The dataset for this project is 10 million stellar [PSFs](http://en.wikipedia.or
 After some initial work I was able to create a reader that takes the outputs text files from my colleague's code and transforms it into a numpy array. Next, we decided we wanted to start by characterizing the PSFs with two 1-D Gaussian fits through the center pixel, one in the row direction and another in the column.
 
 First of all, I was _shocked_ to learn, after an hour of googling and popping my head into people's offices, that the definition of a Gaussian distribution isn't tucked away somewhere in NumPy or SciPy. Thinking about it, it _guess_ makes sense because it's not clear what format your inputs and outputs should be, but I'm still a little surprised that all the tutorials I found on this subject began with defining the Gaussian distribution. Anyway, once I got past that the rest wasn't too hard. 
-
 
 ```python
 import numpy as np

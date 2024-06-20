@@ -2,7 +2,7 @@
 title: 'What The F*ck Is The Internet Vol. 1 -  Bits, Encoding, Packets, and Protocols'
 date: 2017-03-17
 description: "A short presentation about how data is encoded over networks"
-tag: python, programming, presentations
+tag: python, programming, presentations, "github-blog"
 authors: acv
 ---
 
