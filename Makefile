@@ -1,3 +1,6 @@
+build:
+	npm run build
+
 create-page:
 	cp -vn template.md pages/posts/$(title).md
 
