@@ -1,6 +1,6 @@
 ---
-title: Migrating Posts From My GitHub
-date: 2024-06-20
+title: Migrating Posts From My GitHub Blog
+date: 2024-06-26
 description: "Porting some old posts over from 2014-2017"
 tag: 'meta, "github-blog"'
 author: acv
