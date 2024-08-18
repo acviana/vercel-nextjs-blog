@@ -6,11 +6,11 @@ tag: weekly-update, sabbatical, math, computer-science, proofs, duckdb
 author: acv
 ---
 
-Let most bloggers, I have a long backlog of unfinished posts. While I aspire to get concise well-scoped ideas out the door I tend to reverted to my natural discursive writing style and completionist tendencies. 
+Like most bloggers, I have a long backlog of unfinished posts. While I aspire to get concise well-scoped ideas out the door I tend to reverted to my natural discursive writing style and completionist tendencies. 
 
 So to work on that I'm trying a weekly update format. I'm drawing direct inspiration from Simon Willison's "[weeknotes](https://simonwillison.net/tags/weeknotes/)" as well as John D. Cook's short-form technical [blogging](https://www.johndcook.com/blog/).
 
-So here's what I've been up to the past week.
+So here's my first attempt at a weekly update. If you need a soundtrack while you read, may I suggest Four Tet's latest album [Three +](https://open.spotify.com/album/4pnU9CGKI2YneVwkqK6EIN?si=96fD3W52TWWQL_SOWhaCww)
 
 ### I'm on Sabbatical
 
@@ -22,7 +22,7 @@ For nearly 2 years now I've made a concerted effort to study math again. I spent
 
 So this year I took a step "back" and have been working through John Hammack's _"The Book of Proof (3rd Edition)"_. This book focuses on teaching the mechanics of proofs using a range of examples from different areas of math. This book is exactly what I needed as an undergrad and I've been I've gotten a lot more comfortable with the tools needed to work on the math I'm interested in learning (I even submitted a small typo!). 
 
-Currently, I'm working through the chapter on mathematical induction. Most the problems so far have been about elementary number theory or series. I got stuck this week on a problem that implies the divergence of the Harmonic Series, But, I think I've just about unwound my confusion. The rest of the chapter has problems on the Fibonacci sequence, Pascal's triangle, and graph theory. 
+Currently, I'm working through the chapter on mathematical induction. Most the problems so far have been about elementary number theory or series. I got stuck this week on a problem that implies the divergence of the Harmonic Series. But, I think I've just about unwound my confusion. The rest of the chapter has problems on the Fibonacci sequence, Pascal's triangle, and graph theory. 
 
 ### CS Fundamentals with LeetCode
 
