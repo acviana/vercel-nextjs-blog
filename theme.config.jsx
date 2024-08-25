@@ -64,13 +64,10 @@ export default {
     </span>,
   head: ({ title, meta }) => (
     <>
-      {meta.description && (
-        <meta name="description" content={meta.description} />
-      )}
+      {meta.description && <meta name="description" content={meta.description} />}
       {meta.tag && <meta name="keywords" content={meta.tag} />}
       {meta.author && <meta name="author" content={meta.author} />}
       {meta.todo && <meta name="robots" content="follow, index" />}
-      {meta.description && <meta name="description" content={meta.description} />}
       {meta.title && <meta property="og:site_name" content={meta.title} />}
       {meta.description && <meta property="og:description" content={meta.description} />}
       {meta.title && <meta property="og:title" content={meta.title} />}
