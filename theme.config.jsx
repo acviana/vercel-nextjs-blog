@@ -75,11 +75,11 @@ export default {
       {meta.description && <meta property="og:description" content={meta.description} />}
       {meta.title && <meta property="og:title" content={meta.title} />}
       {meta.image && <meta property="og:image" content={meta.image} />}
-      {meta.image && <meta name="twitter:card" content={meta.image} />}
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="AlexVianaPro" />
       {meta.title && <meta name="twitter:title" content={meta.title} />}
       {meta.description && <meta name="twitter:description" content={meta.description} />}
-      {meta.image && <meta name="twitter:image" content={meta.image} />}
+      {/*{meta.image && <meta name="twitter:image" content={meta.image} />}*/}
     </>
   ),
   readMore: 'Read More →',
