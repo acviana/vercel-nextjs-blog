@@ -1,7 +1,7 @@
 ---
 title: 2024-08-23 Weekly Update
 date: 2024-08-23
-description: "Some in-person events plus more proofs, LeetCode, and DuckDB"
+description: Some in-person events plus more proofs, LeetCode, and DuckDB
 tag: weekly-update, sabbatical, math, computer-science, proofs, duckdb
 author: acv
 ---
