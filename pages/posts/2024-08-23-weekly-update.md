@@ -10,7 +10,7 @@ author: acv
 > \- Feedback on my last post 
 
 > Unpopular opinion I agree with- learning should not be fun. 
-> \- Adrej TODO [Twitter](https://x.com/udayan_w/status/1824715943919886338)
+> \- Andrej Karpathy [Twitter](https://x.com/udayan_w/status/1824715943919886338)
 >
 
 Last week I wrote my [first weekly update](https://www.acviana.com/posts/2024-08-16-weekly-update). My only goal was to write something up without belaboring it too much. I was pleasantly surprised to get a wide range of positive feedback from readers (I have readers!?!). 
@@ -27,7 +27,7 @@ One of the trade-offs I made this week is that I didn't put much time into math 
 
 I wrapped up the proof I was working on last week which asks you to show that the [harmonic series](https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)), summed up to $1/2^n \geq 1 + n/2$. This in effect shows that the Harmonic series is unbounded. I got reasonably close to the solution on my own but was missing the final technique to complete the proof. Once I read the answer I got it, but I spent a little more time with the proof until I felt like the missing technique was a logical conclusion and not a flash of insight. This problem in particular, because it's about proving a bound, is a nice set up for the theory of calculus chapters which make up the last 3rd of the book. If you're interested, I was able to eventually nudge ChatGPT to the [correct proof](https://chatgpt.com/share/2913baf6-1b56-445d-bcd2-58ce6ede57fd). 
 
-The other bit of math study I did was wrap up my notes and a few of the problems from Wasserman's "[All of Statistics](https://www.amazon.com/All-Statistics-Statistical-Inference-Springer/dp/1441923225)". This included finishing up a proof on the continuity of probabilities (again, ChatGPT can walk you through it). TODO Working through this book feels like a bit more of a grind. I'm not sure if it's the subject matter or the book but I'm on the fence on if I'm going to continue working on this right now.
+The other bit of math study I did was wrap up my notes and a few of the problems from Wasserman's "[All of Statistics](https://www.amazon.com/All-Statistics-Statistical-Inference-Springer/dp/1441923225)". This included finishing up a proof on the continuity of probabilities (again, ChatGPT can walk you through [the proof](https://chatgpt.com/share/6a0590d6-edb5-473c-bf7f-3dd0348d1995)).  Working through this book feels like a bit more of a grind. I'm not sure if it's the subject matter or the book but I'm on the fence on if I'm going to continue working on this right now.
 
 ## Programming
 
