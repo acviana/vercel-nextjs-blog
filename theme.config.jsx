@@ -64,11 +64,19 @@ export default {
     </span>,
   head: ({ title, meta }) => (
     <>
-      {meta.description && (
-        <meta name="description" content={meta.description} />
-      )}
+      {meta.description && <meta name="description" content={meta.description} />}
       {meta.tag && <meta name="keywords" content={meta.tag} />}
       {meta.author && <meta name="author" content={meta.author} />}
+      {meta.todo && <meta name="robots" content="follow, index" />}
+      {meta.title && <meta property="og:site_name" content={meta.title} />}
+      {meta.description && <meta property="og:description" content={meta.description} />}
+      {meta.title && <meta property="og:title" content={meta.title} />}
+      {meta.image && <meta property="og:image" content={meta.image} />}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="AlexVianaPro" />
+      {meta.title && <meta name="twitter:title" content={meta.title} />}
+      {meta.description && <meta name="twitter:description" content={meta.description} />}
+      {/*{meta.image && <meta name="twitter:image" content={meta.image} />}*/}
     </>
   ),
   readMore: 'Read More →',
