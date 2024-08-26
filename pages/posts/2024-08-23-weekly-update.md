@@ -7,11 +7,12 @@ author: acv
 ---
 
 > ... the most important thing is to have fun!
-> \- Feedback on my last post 
+
+- Feedback on my last post 
 
 > Unpopular opinion I agree with- learning should not be fun. 
-> \- Andrej Karpathy [Twitter](https://x.com/udayan_w/status/1824715943919886338)
->
+
+- Andrej Karpathy [Twitter](https://x.com/udayan_w/status/1824715943919886338)
 
 Last week I wrote my [first weekly update](https://www.acviana.com/posts/2024-08-16-weekly-update). My only goal was to write something up without belaboring it too much. I was pleasantly surprised to get a wide range of positive feedback from readers (I have readers!?!). 
 
@@ -43,7 +44,7 @@ To be clear, I still get _very_ frustrated when I get stuck! But time boxing mys
 
 I made a little more progress on my eloquently named [bookmark thing](https://github.com/acviana/bookmark-thing) side project. This started as an excuse to play with DuckDB some more while tracking interesting links. Because DuckDB is an OLAP database I wanted to see if I could just throw everything into one flat denormalized table. 
 
-I wanted use some of the list parsing functions to modify the tag list associated with each entry. This was working fine until I tried to perform an update on a tag list and started getting unexpected constraint errors. After some digging I realized that currently duckdb treats list updates as an insert followed by an update, which is known to cause these types of errors. If you're interested you can check out the relevant [GitHub issue](https://github.com/duckdb/duckdb/issues/11915) and the documentation [explanation](https://duckdb.org/docs/sql/data_types/list#updating-lists).
+I wanted to use some of the list parsing functions to modify the tag list associated with each entry. This was working fine until I tried to perform an update on a tag list and started getting unexpected constraint errors. After some digging I realized that currently duckdb treats list updates as an insert followed by an update, which is known to cause these types of errors. If you're interested you can check out the relevant [GitHub issue](https://github.com/duckdb/duckdb/issues/11915) and the documentation [explanation](https://duckdb.org/docs/sql/data_types/list#updating-lists).
 
 Instead of trying to figure out a work around (such as handling this in the application code) I decided to just revert to a typical normalized database model and build a denormalized view on top of that. 
 
@@ -56,7 +57,7 @@ Overall, this project is reaffirming my belief in aggressively using your protot
 ## Odds and ends
 
 - I finally [updated](https://github.com/acviana/vercel-nextjs-blog/pull/22) the Twitter card template from the blog default.
-- I really feel like I'm starting to hit my stride with using ChatGTP to work on what Charlie Marsh called "side quests" - stuff like the changing the Twitter card. I've been squashing tons of small annoying bugs and warnings this way and it's starting to become my go-to.
+- I really feel like I'm starting to hit my stride with using ChatGTP to work on what I saw Charlie Marsh call "side quests" - stuff like the changing the Twitter card. I've been squashing tons of small annoying bugs and warnings this way and it's starting to become my go-to.
 - Lastly been listening to Martin Kleppmann's excellent "[Designing Data-Intensive Applications](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)". I finished up the chapters on database replication and partitioning and started the chapter on transactions. I'm learning a lot more than I thought I would by listening to a technical book! That being said, I know I'm only retaining a fraction of the material, but it's more than the 0% I would get by just looking at the book on my shelf and thinking "I should read that".
 
 ## Networking
