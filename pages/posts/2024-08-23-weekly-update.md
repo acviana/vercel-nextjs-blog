@@ -34,8 +34,6 @@ I'm starting to slow down a little bit because while I'm getting better at solvi
 
 Just like with my math proofs I'm getting much better at efficiently learning and not just beating my head against the wall when I'm stuck. What that looks like for me is aggressively cutting the problem down until I have identified a missing technique, then checking the answers to find that technique, then trying to apply it from memory.
 
-Lastly been listening to Martin Kleppmann's excellent "[Designing Data-Intensive Applications](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)". I finished up the chapters on database replication and partitioning and started the chapter on transactions. I've been really impressed at how easy it is to follow along to the audio version of such a technical book. That being said, I know I'm only retaining a fraction of the material, but it's more than the 0% I would get by just looking at the book on myself and thinking "I should read that".
-
 ## Bookmark Thing
 
 I made a little more progress on my eloquently named [bookmark thing](https://github.com/acviana/bookmark-thing) side project. 
@@ -49,6 +47,13 @@ This new schema has the drawback this database is now more of an OLTP workload, 
 I now have working versions of my schema creation as well as the CRUD queries I want to run. I'm eager to get this wrapped up in a Typer CLI interface but I think next week I'll be interacting with my code in SQL while moving it to MotherDuck, DuckDB's hosted offering.
 
 Overall, this project is reaffirming my belief in aggressively using your prototypes as much as possible before writing additional code.
+
+## Odds and ends
+
+- I finally [updated](https://github.com/acviana/vercel-nextjs-blog/pull/22) the Twitter card template from the blog default.
+- I really feel like I'm starting to hit my stride with using ChatGTP to debug stuff. I've been squashing tons of small annoying bugs and warnings with it - what Charlie Marsh called "side quests".
+- Lastly been listening to Martin Kleppmann's excellent "[Designing Data-Intensive Applications](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)". I finished up the chapters on database replication and partitioning and started the chapter on transactions. I've been really impressed at how easy it is to follow along to the audio version of such a technical book. That being said, I know I'm only retaining a fraction of the material, but it's more than the 0% I would get by just looking at the book on myself and thinking "I should read that".
+
 
 ## Networking
 
