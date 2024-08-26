@@ -8,11 +8,11 @@ author: acv
 
 > ... the most important thing is to have fun!
 
-- Feedback on my last post 
+\- Reader feedback on my last post 
 
 > Unpopular opinion I agree with- learning should not be fun. 
 
-- Andrej Karpathy [Twitter](https://x.com/udayan_w/status/1824715943919886338)
+\- Andrej Karpathy [Twitter](https://x.com/udayan_w/status/1824715943919886338)
 
 Last week I wrote my [first weekly update](https://www.acviana.com/posts/2024-08-16-weekly-update). My only goal was to write something up without belaboring it too much. I was pleasantly surprised to get a wide range of positive feedback from readers (I have readers!?!). 
 
