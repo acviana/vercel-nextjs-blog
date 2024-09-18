@@ -6,25 +6,29 @@ tag: weekly-update, sabbatical, programming, large-language-models, artifical-in
 author: acv
 ---
 
+I really feel like this weekly updates experiment is coming along. Even though I'm a little late on this week's update I still feel 1) motivated to share 2) able to knock out some notes quickly and 3) confident in putting my thoughts out there.
+
+Here's what I've been up to.
+
 ### Evergreen Notes
 
-As I mentioned last week I've been interested in TODO's concept of "Evergreen Notes". I've tried to put this into practice and regularly refine my notes of my talking points for my job interviews. It's still early but I think I like this iterative approach to refining my understanding of a discrete topic and not just dumping information into yet another unlinked and unread note document.
+As I mentioned last week I've been interested in Andy Matuschak's concept of ["Evergreen Notes"](https://notes.andymatuschak.org/z5E5QawiXCMbtNtupvxeoEX). In short notes should be atomic, concept-oriented, and densely linked, ontological, and written for yourself first. I've tried to put this into practice by regularly refine my notes of my talking points for my job interviews. It's still early, but I think I like this approach. It feels more like refining my understanding of discrete topics and not just dumping information into yet another unlinked and unread note document.
 
 ### LLMs and Pipelines
 
-I'm digging deeper on the LLM-based medical document summarization tool that I'm helping a local founder with. As I mentioned last week, I'm using ChatGTP and the Instructor library. What's most striking to me about working with LLMs is ... how familiar it all feels. 
+I'm digging deeper into creating a data pipeline for an LLM-based medical document summarization tool that I'm helping a local founder with. As I mentioned last week, I'm using ChatGTP and the Instructor library for most of this work. What's most striking to me so far about working with LLMs is how ... familiar it all feels. 
 
-While the iteration process of prompt engineering is novel, much of the scaffolding for the project are very familiar data engineering problems. I want to make it really easy for us to run experiments and understand the results. Which means I spend my time thinking about data schemas, validation and serialization, and function parameters. Which is not that different that any other data pipeline.
+While the iteration process of prompt engineering is novel, much of the scaffolding for the project centers around familiar data engineering problems. For example, I want to make it really easy for us to run experiments and understand the results. Of course, the LLM is producing incredible results, but most of the work to enable that is familiar data pipelining. This means I spend my time thinking about data schemas, validation and serialization, and function parameters. 
 
-Of course, the LLM are producing incredible results, but it's all in a mostly familiar framework. Which leads me to my next point.
+ Which leads me to my next point.
 
 ### Taste in Programming
 
-Last week this article was making the rounds on HackerNews from TODO arguing that part GitHub "won" at least in part because it had good taste. You can disagree with that conclusion but I still the think the idea of "taste" is important.
+Last week [this article](https://blog.gitbutler.com/why-github-actually-won/) was making the rounds on HackerNews by GitHub Cofounder Scott Chacon. He argued that part GitHub "won" because 1) it was at the right place at the right time and 2) it had good taste. You can disagree with that conclusion but I still think it's important to develop your personal sense of programming "taste". By taste I don't quite mean programming techniques like TDD or language features like types. I mean something closer to your personal definition of "good".
 
-I've been thinking more about my personal "taste" when it comes to writing code. In part this is because I'm writing more code that usual. But more specifically I'm at that interesting stage of a project where I'm scaling out the code and making design decisions that shape the project. There are a lot of best practices and paradigms to choose from but there's also a certain element of taste at play.
+Lately I've been thinking more about my own taste in programming. In part, this is because I'm writing more code that usual. More specifically, this LLM project has given me a playground where I can both set the style guide and have complete architectural control. At the same time, unlike a toy project, the codebase is starting to get big enough that I'm starting to notice my own inconsistencies and eccentricities. Things like variable names, function scope, abstractions, etc. There are a lot of best practices and paradigms to choose from, but there's also a certain element of taste at play.
 
-By "taste" I don't quite mean programming techniques like TDD or language features like types. I mean something closer to your personal definition of "good".
+The most helpful reference I have here is actually not a technical one. 
 
 I think actually the most helpful reference here the men's fashion commentator DieWorkWear TODO:Link. One the points he continuously makes is that "good taste" is about well-execute coherent ideas. If you want to look like a cowboy, or a 90s rapper, or landed gentry then your outfit should coherently convey that. (Of course you can choose the break all the rules, but this only tends to go well when you intimately understand the rules you are breaking)
 
