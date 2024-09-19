@@ -1,7 +1,7 @@
 ---
 title: 2024-09-09 Weekly Update
 date: 2024-09-09
-description: TODO
+description: Week 11 of my sabbatical - evergreen notes, LLMs, and programming taste 
 tag: weekly-update, sabbatical, programming, large-language-models, artifical-intelligence
 author: acv
 ---
@@ -24,17 +24,17 @@ While the iteration process of prompt engineering is novel, much of the scaffold
 
 ### Taste in Programming
 
-Last week [this article](https://blog.gitbutler.com/why-github-actually-won/) was making the rounds on HackerNews by GitHub Cofounder Scott Chacon. He argued that part GitHub "won" because 1) it was at the right place at the right time and 2) it had good taste. You can disagree with that conclusion but I still think it's important to develop your personal sense of programming "taste". By taste I don't quite mean programming techniques like TDD or language features like types. I mean something closer to your personal definition of "good".
+Last week [this article](https://blog.gitbutler.com/why-github-actually-won/) was making the rounds on HackerNews by GitHub Co-founder Scott Chacon. He argued that part GitHub "won" because 1) it was at the right place at the right time and 2) it had good taste. You can disagree with that conclusion but I still think it's important to develop your personal sense of programming "taste". By taste I don't quite mean programming techniques like TDD or language features like types. I mean something closer to your personal definition of "good".
 
-Lately I've been thinking more about my own taste in programming. In part, this is because I'm writing more code that usual. More specifically, this LLM project has given me a playground where I can both set the style guide and have complete architectural control. At the same time, unlike a toy project, the codebase is starting to get big enough that I'm starting to notice my own inconsistencies and eccentricities. Things like variable names, function scope, abstractions, etc. There are a lot of best practices and paradigms to choose from, but there's also a certain element of taste at play.
+Lately I've been thinking more about my own taste in programming. In part, this is because I'm writing more code that usual. More specifically, this LLM project has given me a playground where I can both set the style guide and have complete architectural control. At the same time, unlike a toy project, the codebase is starting to get big enough that I'm starting to notice my own inconsistencies and eccentricities. Things like variable names, function scope, abstractions, etc. 
 
-The most helpful reference I have here is actually not a technical one. 
+There are a lot of best practices and paradigms to choose from, but there's also a certain element of taste at play. This Medium article on "[Data pipeline recipes in Python](https://medium.com/@iftimiealexandru/data-pipeline-recipes-in-python-8561e07b2556)" gives a good sense of some of the design decisions I'm talking about. But most helpful reference I have here is actually not a technical one. 
 
-I think actually the most helpful reference here the men's fashion commentator DieWorkWear TODO:Link. One the points he continuously makes is that "good taste" is about well-execute coherent ideas. If you want to look like a cowboy, or a 90s rapper, or landed gentry then your outfit should coherently convey that. (Of course you can choose the break all the rules, but this only tends to go well when you intimately understand the rules you are breaking)
+Instead, I've found myself thinking about the men's fashion commentator Derek Guy (aka [@DieWorkWear](https://x.com/dieworkwear)). One the points he continuously makes is that "good taste" is about well-executed coherent ideas. If you want to look like a cowboy, or a 90's rapper, or landed gentry then your outfit should coherently convey that. (Of course you can choose the break all the rules, but this only tends to go well when you intimately understand the rules you are breaking)
 
-I think it's the same with code, coherent ideas well executed. As my codebase grows, I find myself asking more and more "why am I doing this?" and maybe more importantly "is it consistent with my other decisions in this codebase?".
+I think it's the same with code, you want coherent ideas well executed. As my codebase grows, I find myself asking more and more "why am I doing this?" and maybe more importantly "is it consistent with my other decisions in this codebase?".
 
-Odds and Ends
+### Odds and Ends
 
- - As I mentioned above DieWorkWear is  obviously a great follow if you have any interest in men's fashion. But he's also an example of overall great analysis especially in how to combine technical details (this is how a sport coat is assembled) with big-picture framing (this is the purpose of a sport coat).
- - This is a another Hacker News post from last month I enjoyed, ["Markov chains are Funnier than LLMs"](https://emnudge.dev/blog/markov-chains-are-funny/). In part because I enjoy meta-analysis of comedy (I'm really fun at parties). But, I also enjoyed the technical point that Markov chains produce distributions of outcomes (the edges of which an be inadvertently funny) but LLMs only produce the mean outcome (which is not funny). 
+ - As I mentioned above Derek Guy (aka [@DieWorkWear](https://x.com/dieworkwear)) is  obviously a great follow if you have any interest in men's fashion. But he's also an example of overall great analysis, especially in how he combine technical details ("this is how a sport coat is constructed") with big-picture framing ("this is the purpose of a sport coat").
+ - Here's another Hacker News post from last month I enjoyed, ["Markov chains are Funnier than LLMs"](https://emnudge.dev/blog/markov-chains-are-funny/). In part because I enjoy meta-analysis of comedy (I'm really fun at parties). But, I also enjoyed the technical point that Markov chains produce distributions of outcomes (the edges of which an be inadvertently funny) but LLMs only produce the mean outcome (which is not funny). 
