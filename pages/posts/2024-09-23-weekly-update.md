@@ -6,9 +6,14 @@ tag: TODO
 author: acv
 ---
 
-## Finding My Latest Obsidian Files
+## Easier Blogging with Obsidian's Dataview
 
 I've been using Obsidian pretty deeply for about a year now. Recently, I got back into using the popular dataview plug-in for generating indexes of files for different projects. This of dataview as embedded SQL(ish) queries against your Obsidian file metadata.
+
+```sql
+LIST
+WHERE file.mtime >= date(today) - dur(1 week)
+```
 
 Using dataview helped me discover a little blogging hack for these weekly updates. I now have a file with query for all the files I've modified over the past week. This makes it really easy for me to see what I've been thinking about without needing to keep any additional notes!
 
@@ -21,16 +26,16 @@ This week I came across two Python expressions I hadn't seen before though both 
 The pipe operator can be used to combine to dictionaries `|` like this:
 
 ```python
->>> a = {"this":"that"}
+>>> a = {"this": "that"}
 
->>> b = {"foo":"bar"}
+>>> b = {"foo": "bar"}
 
->>> a+b
+>>> a + b
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unsupported operand type(s) for +: 'dict' and 'dict'
 
->>> a|b
+>>> a | b
 {'this': 'that', 'foo': 'bar'}
 ```
 
@@ -41,14 +46,14 @@ This was introduced in version TODO, you can read the docs here. TODO. Previousl
 The second is a little more involved. The slash symbol `/` can be used to denote function variables that _must_ be positional-only vs keyword arguments.
 
 ```python
->>> def a(arg_1,/,arg_2):
+>>> def a(arg_1, /, arg_2):
 ...     print(arg_1, arg_2)
 ...
 
->>> a("this","that")
+>>> a("this", "that")
 this that
 
->>> a(arg_1="this",arg_2="that")
+>>> a(arg_1="this", arg_2="that")
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: a() got some positional-only arguments passed as keyword arguments: 'arg_1'
@@ -94,7 +99,9 @@ return {
 
 ## Using Editable Modules in Jupyter Notebooks
 
-This is one of those syntaxes I have to look up every year and just have to throw at the wall for a bit until it works.
+A development pattern I often find myself using is editing a Python module while also importing and using that module in an Jupyter notebook. In part, this comes from by background bouncing back and forth between data science and data engineering work. So I both appreciate the utility of notebooks but also dislike the coding habits they encourage. So I'll either find myself taking notebook and iteratively moving to a module, or using a notebook to interact with the output of a module I've developed.
+
+In either case, to do this you need to tell the Jupyter server to refresh the module that it's loaded into memory. If you're just doing this once you can just restart the server. But if you're doing it constantly you can set a flag to force module reloading. This is one of those syntaxes I have to look up every year and just have to throw at the wall for a bit until it works.
 
 ```python
 # Loads the `autoreload` extension
