@@ -6,7 +6,7 @@ tag: python, programming, obsidian, vim, weekly-updates
 author: acv
 ---
 
-I didn't get an update out last week.
+I didn't get an update out last week because I've been heads down on some projects. But, practicing evergreen note taking has meant that I now have notes that I can easily turn into weekly updates.
 
 ## Easier Blogging with Obsidian's Dataview
 
@@ -17,9 +17,9 @@ LIST
 WHERE file.mtime >= date(today) - dur(1 week)
 ```
 
-I've been using Obsidian pretty deeply for about a year now. Recently, I got back into using the popular dataview plug-in for generating indexes of files for different projects. This of dataview as embedded SQL(ish) queries against your Obsidian file metadata.
+I've been using Obsidian pretty deeply for about a year now. I finally have so much content that organizing it has become challenging so I've started using the popular dataview TODO:link plug-in for generating indexes of files for different projects.
 
-Using dataview helped me discover a little blogging hack for these weekly updates. I now have a file with query for all the files I've modified over the past week. This makes it really easy for me to see what I've been thinking about without needing to keep any additional notes!
+I now have a query for all the files I've modified over the past week without needing to keep any additional notes! This turned into a little blogging hack for these weekly updates. I
 
 ## New (To Me) Python Syntax
 
