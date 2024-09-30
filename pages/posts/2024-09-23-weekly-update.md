@@ -6,20 +6,20 @@ tag: python, programming, obsidian, vim, weekly-updates
 author: acv
 ---
 
-I didn't get an update out last week because I've been heads down on some projects. But, practicing evergreen note taking has meant that I now have notes that I can easily turn into weekly updates.
+I didn't get an update out last week because I've been heads down on some projects. But, more time hands-on coding and practicing evergreen note taking means that I now have ready-to-go content for weekly updates.
 
 ## Easier Blogging with Obsidian's Dataview
 
-This dataview query allows you to see all the Obsidian files you've edited in the last week.
+I've been using Obsidian pretty deeply for about a year now and I finally have so much content that organizing it has become challenging. To help with that I've started using the popular [dataview plug-in](https://blacksmithgu.github.io/obsidian-dataview/) to generate indexes of files for different projects.
+
+Obsidian files are fundamentally and transparently markdown files and dataview lets you query your file metadata using a SQL-ish dialect. For example, this dataview query I figured out this week allows you to see all the Obsidian files you've edited in the last week.
 
 ```sql
 LIST
 WHERE file.mtime >= date(today) - dur(1 week)
 ```
 
-I've been using Obsidian pretty deeply for about a year now. I finally have so much content that organizing it has become challenging so I've started using the popular dataview TODO:link plug-in for generating indexes of files for different projects.
-
-I now have a query for all the files I've modified over the past week without needing to keep any additional notes! This turned into a little blogging hack for these weekly updates. I
+This is useful because looking at all the files I modified in a week is great blogging hack for these weekly updates.
 
 ## New (To Me) Python Syntax
 
@@ -78,6 +78,12 @@ I looked it up and I've been using Python since 2008 which would put me at about
 
 During this sabbatical I've been seriously trying to use Vim, more precisely NeoVim (even more precisely LazyVim) as my main text editor and IDE. This week I finally added my first configuration file.
 
+My big jump this week is that I finally got comfortable enough with my setup to create a configuration file. To LazyVim's credit, the defaults are so sane that I really didn't have much motivation to change anything for months.
+
+Configuration files in LazyVim are fundamentally Lua functions that return maps with the configuration settings. LazyVim's functionality is built around an ecosystem of plugins so to configure your settings you need to know 1) which plugin is controlling the setting you want to configure and then 2) the configuration schema for that particular package.
+
+This is all kinda of steep but really not that bad once you get the hang of it. For example here is the config file I wrote to to display hidden dot files in neotree, the sidebar tree view plugin.
+
 ```lua
 return {
   "nvim-neo-tree/neo-tree.nvim",
@@ -100,19 +106,13 @@ return {
 }
 ```
 
-It's been a lot of fun but the learning curve has been _steep_. I finally started to get the hang of navigation after reading most of TODO as well as this cheatsheet from TODO. (As well as some evergreen note taking).
-
-My big jump this week is that I finally got comfortable enough with my setup to create a configuration file. To LazyVim's credit the defaults are so sane that I really didn't have much motivation to change anything for months.
-
-Previously, I had tried to adjust a setting but that in a Python LSP managed dependency which is inherently trickier. I got stuck but did learn about how config files are structured and evaluated.
-
-Finally though I wanted to be able to see my dotfiles in neo-tree sidebar extension. This one was pretty easy set up and my first time writing Lua.
-
-Here is my first example config in `~/.config/nvim/lua/plugins/neo-tree.lua`
-
 ## Using Editable Modules in Jupyter Notebooks
 
-A development pattern I often find myself using is editing a Python module while also importing and using that module in an Jupyter notebook. Here's how you do that.
+A somewhat eccentric development pattern I often find myself using is editing a Python module while also importing and using that same module in an Jupyter notebook.
+
+To me, this allows you to have the data exploration tools of a notebook along with the best-practice and tooling of a normal Python project. So as I'm working on a project I might start migrating functions from my notebook into my module so I'm just working at the "end" of a growing pipeline of transformations.
+
+To do this you need to tell the Jupyter server to refresh the already loaded module. If you're just doing this once you can just restart the notebook server. But if you're doing it constantly you can set a flag to force module reloading. This is one of those syntaxes I have to look up every year and just have to throw at the wall for a bit until it works so I finally decided to take some notes.
 
 ```python
 # Loads the `autoreload` extension
@@ -131,6 +131,4 @@ A development pattern I often find myself using is editing a Python module while
 %aimport foo, bar
 ```
 
-In part, this comes from by background bouncing back and forth between data science and data engineering work. So I both appreciate the utility of notebooks but also dislike the coding habits they encourage. So I'll either find myself taking notebook and iteratively moving to a module, or using a notebook to interact with the output of a module I've developed.
-
-In either case, to do this you need to tell the Jupyter server to refresh the module that it's loaded into memory. If you're just doing this once you can just restart the server. But if you're doing it constantly you can set a flag to force module reloading. This is one of those syntaxes I have to look up every year and just have to throw at the wall for a bit until it works.
+I think this development pattern should manage to upset everyone; data scientists won't want the hassle of pushing data down to a module and developers won't want to use a notebook environment. But to me, it's the best of both worlds.
