@@ -1,23 +1,30 @@
 {
+  "type": "module",
   "private": true,
   "license": "MIT",
   "scripts": {
+    "build": "next build",
+    "clean": "rimraf .next .turbo",
     "dev": "next",
-    "build": "node ./scripts/gen-rss.js && next build",
     "start": "next start"
-  },
-  "engines": {
-    "node": ">=18.0.0 <20.0.0"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
     "next": "^14.2",
-    "nextra": "^2.12.1",
-    "nextra-theme-blog": "^2.12.1",
+    "nextra": "^3.0",
+    "nextra-theme-blog": "^3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rss": "^1.2.2",
     "sharp": "^0.33.5"
+  },
+  "dependenciesMeta": {
+    "nextra": {
+      "injected": true
+    },
+    "nextra-theme-blog": {
+      "injected": true
+    }
   },
   "prettier": {
     "arrowParens": "always",
