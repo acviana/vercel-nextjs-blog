@@ -8,9 +8,9 @@ author: acv
 
 ### Removing Sensitive Data From Git
 
-The other day I was working too fast trying to live-fix a bug on a call with a consulting client and I ended up accidentally committing an API key to our repo and pushing the change. Fortunately, we're the only two people who have access to the repo, but still I wanted to properly scrub it from the repo.
+The other day I was working with a consulting client trying to live-fix a bug on a call. I was going too fast and I ended up accidentally committing an API key to our repo and pushing the change. Fortunately, we're the only two people who have access to the repo, but I still wanted to properly scrub it from the repo.
 
-Since the last time I've had to do this the recommended tool has gone from `git-filter-branch` t0 `git-filter-repo`. I had a pretty easy time finding suggestions on how to delete a word/file from the history but had a harder time finding a command to _verify_ that the text was removed.
+I haven't had to scrub a git history for a private key in a few years. Since then, the recommended tool has gone from `git-filter-branch` to `git-filter-repo` (TODO: Docs). I had a pretty easy time finding suggestions on how to delete a word/file from the history but I had a harder time finding a command to _verify_ that the text was removed.
 
 I've captured both in here and subbed `<REDACTED>` for the sensitive text.
 
@@ -53,13 +53,15 @@ To <REDACTED>
  + 4da8e1f...27440ad main -> main (forced update)
 ```
 
+Hopefully this is not something I need to do for a few more years but I figured it was worth capturing in some notes.
+
 ### Odds and Ends
 
-I updated my blog dependencies including bumping the blog framework to Nextra v3.0. TODO:PR This required massaging some configuration files but overall was not too bad. Most importantly, it seems to have fixed a bug where some new posts were not being added to the main post feed.
+**Blog Version Update:** I updated my blog dependencies including bumping the blog framework to Nextra v3.0. TODO:PR This required massaging some configuration files but overall was not too bad. Most importantly, it seems to have fixed a bug where some new posts were not being added to the main post feed.
 
 ### New Tools I'm using
 
-Over the course of this sabbatical I've been exploring some new tooling and have changed my preferences for a surprising number of tools.
+Over the course of this sabbatical I've been exploring some new tooling. There's a lot of reasons for this  including doing more hands-on work and setting up a new laptop. In the process I've changed my preferences for a surprising number of tools. I threw the main ones in a table below:
 
 | Category        | Old         | New        | Notes                               |
 | --------------- | ----------- | ---------- | ----------------------------------- |
@@ -68,5 +70,8 @@ Over the course of this sabbatical I've been exploring some new tooling and have
 | IDE             | SublimeText | LazyVim    | Trying to live more in the terminal |
 | Theme           | Dracula     | TokyoNight | Time for an aesthetic change        |
 | Git             | CLI         | LazyGit    | Great UI and terminal-based         |
+| Python Projects | Poetry      | Astral uv  | The solution we've been waiting for |
 
-I've also really updated my Python tool chain. I've dropped Poetry in favor of Astral's uv project and will probably soon do the same with Pyenv.
+Some themes here are working more in the terminal with Kitty and LazyVim. I still love the Fish shell but went for a more stripped back prompt over my previous powerline9000 inspired configuration. Lastly, like everyone else I've been joining the Astral bandwagon and moving my workflow over to uv from Poetry (and pipenv before that). I suspect I'll migrate off of pyenv in a few weeks as I get more comfortable with uv.
+
+Updates like these are one of the reasons that I don't backup my dotfiles. First of all, I don't tend to use tool that require a ton of configuration out of the box. But more to the point, having to configure each of my machines separately ensures helps me discover new tools, drop tools that I don't miss, and makes sure I really understand my tools well enough to troubleshoot them.
