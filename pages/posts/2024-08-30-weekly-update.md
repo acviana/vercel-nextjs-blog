@@ -1,7 +1,7 @@
 ---
-title: 2024-08-30 Weekly Update
+title: 2024-08-30 Weekly Update - Web scrapting and prompt engineering 
 date: 2024-08-30 
-description: Week 8 of my sabbatical - some web scraping and prompt engineering
+description: Sabbatical Week 8 - some web scraping and prompt engineering
 tag: weekly-update, sabbatical, math, proofs, large-language-models, artifical-intelligence
 author: acv
 ---
