@@ -2,7 +2,7 @@
 title: 2024-09-23 Weekly Update - Python syntax, Obsidian dataview, vim, and Python notebooks
 date: 2024-09-23
 description: Sabbatical Week 13 - python syntax, Obsidian dataview, LazyVim configs, and python notebooks
-tag: python, programming, obsidian, vim, weekly-updates
+tag: python, programming, obsidian, vim, weekly-update
 author: acv
 ---
 
