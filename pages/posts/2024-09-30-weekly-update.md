@@ -6,7 +6,7 @@ tag: git, neovim, meta, uv, weekly-update
 author: acv
 ---
 
-This week's update is again focused on pretty technical content. I've written up some notes on clearing you git history, some updates to this blog, and some new tools I've started using in my daily workflow. I hope you enjoy it.
+This week's update is again focused on technical content. I've written up some notes on clearing your git history, some updates to this blog, and some new tools I've started using in my daily workflow. I hope you enjoy it and reach out if you want to chat about anything I've written.
 
 ### Removing Sensitive Data From Git
 
@@ -76,6 +76,6 @@ At the start of this sabbatical I set up a new laptop and I used that as an excu
 | Git             | CLI         | LazyGit    | Great UI and terminal-based         |
 | Python Projects | Poetry      | Astral uv  | The solution we've been waiting for |
 
-One of the themes in my new choices is working more in the terminal. You can see that in my moving from Sublime Text to LazyVim. That prompted me to move from iTerm2 to Kitty for performance reasons. I still love the Fish shell but went for a more stripped back prompt over my previous powerline9000 inspired configuration. Lastly, like everyone else I've been joining the Astral bandwagon and moving my workflow over to uv from Poetry (and pipenv before that). I suspect I'll migrate off of pyenv in a few weeks as I get more comfortable with uv.
+One of the themes in my new choices is working more in the terminal. You can see that in my moving from Sublime Text to LazyVim. That prompted me to move from iTerm2 to Kitty for performance reasons. I still love the Fish shell but went for a more stripped back prompt over my previous powerline9000 inspired configuration. Lastly, like everyone else in the Python ecosystem, I've been joining the Astral bandwagon and moving my workflow over to uv from Poetry (and pipenv before that). I suspect I'll migrate off of pyenv in a few weeks as I get more comfortable with uv.
 
-Updates like this feel like a "spring cleaning" of my tech stack and are one of the reasons that i don't backup my config/dotfiles between machines. First of all, i don't tend to use tool that require a ton of configuration out of the box. But more to the point, having to configure each of my machines separately helps me discover new tools, drop tools that I don't miss, and makes sure I really understand my tools well enough to troubleshoot them.
+Updates like this feel like a "spring cleaning" of my tech stack and are one of the reasons that I don't backup my config/dotfiles between machines. First of all, I don't tend to use tool that require a ton of configuration out of the box. But more to the point, having to configure each of my machines separately helps me discover new tools, drop tools that I don't miss, and makes sure I really understand my tools well enough to troubleshoot them.
