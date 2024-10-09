@@ -7,8 +7,11 @@ create-page:
 check-packages:
 	npm outdated
 
-update-packages:
+install-packages:
 	npm install
+
+update-packages:
+	npm update 
 
 run-local:
 	npm run dev
