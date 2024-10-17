@@ -1,5 +1,5 @@
 ---
-title: 2024-09-30 Weekly Update - Cleaning git history, blog updates, and new command line tools 
+title: 2024-09-30 Weekly Update - Cleaning git history, blog meta-updates, and new developer line tools 
 date: 2024-09-30
 description: Sabbatical Week 14 - Removing sensitive content from your git history, framework and title format updates for the blog, and new tools I've started using over the last 3 months.
 tag: git, neovim, meta, uv, weekly-update
