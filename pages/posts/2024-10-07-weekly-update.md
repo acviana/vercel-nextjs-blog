@@ -1,7 +1,7 @@
 ---
 title: 2024-10-07 Weekly Update - Levenshtein, Hamming, and Jaccard Distances
 date: 2024-10-07
-description: Sabbatical Week 15 - General metric spaces, Levenshtein, Hamming, and Jaccard distances plus links on Python 3.13, inline funtions, and The MANIAC
+description: Sabbatical Week 15 - General metric spaces, Levenshtein, Hamming, and Jaccard distances plus links on Python 3.13, inline functions, and The MANIAC
 tag: weekly-update, python, math
 author: acv
 ---
