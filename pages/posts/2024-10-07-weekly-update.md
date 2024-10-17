@@ -6,7 +6,7 @@ tag: weekly-update, python, math
 author: acv
 ---
 
-This week as part of my consulting work I’ve been working on evaluation metrics for LLM-powered text extraction. Essentially, trying to quantify if the LLM grabbed the right text from a document. This means diving into more depth on some common text comparison algorithms. These were largely already familiar to me but I hadn't had a change to use most of them on a real engineering problem before. I collected my notes and turned them into this week's post.
+This week as part of my consulting work I’ve been working on evaluation metrics for LLM-powered text extraction. Essentially, trying to quantify if the LLM grabbed the right text from a document. This means getting hands-on with some common text comparison algorithms. These were largely already familiar to me but I hadn't had a change to use most of them on a real engineering problem before. I collected my notes and turned them into this week's post.
 
 If you need something to listen to while you read may I suggest ["Something Will Happen"](https://open.spotify.com/track/5JfTTsxXiIwQKIWy9DcEV1?si=555abf6b6c804867) by house/jazz artist Beloiz. Come for the lush melodies, stay for the encouraging voice-overs by Willem Dafoe.
 
@@ -61,12 +61,12 @@ $$
 J(A,B) = \frac{|{A \cap B}|}{|A \cup B|}
 $$
 
-For text comparisons set elements can be defined in different ways leading to different results. For example, by characters, by words, or by n-grams.
+Note that the Jaccard coefficient does not define a metric space because $J(A,A) = 1$ not $0$ which is why we subtract $1$ to get the Jaccard distance. For text comparisons set elements can be defined in different ways leading to different results. For example, by characters, by words, or by n-grams.
 
 ### Odds and Ends
 
 Here are some other things that have caught my interest this week.
 
-- **Python 3.13 features:** Python 3.13 was released on 2024-10-08. I recently wrote about some new (to me) Python features I had missed so I was curious to check out what’s new in this release. I found a nice overview on this [Real Python Podcast episode](https://realpython.com/podcasts/rpp/223/) which includes links to all the relevant feature PEPs.
-- **Inline Functions:** In another call-back to a recent post I was talking about “taste” in programming, which I loosely defined as being something a little more granular than design patterns. This [post on inline functions](http://number-none.com/blow/john_carmack_on_inlined_code.html) from John Carmack and the associated [Hacker News discussion](https://news.ycombinator.com/item?id=41758371) and when to be inconsistent is exactly the kind of thing I’ve been thinking about.
-- **The MANIAC:** I’ve been working on this [audiobook](https://www.penguinrandomhouse.com/books/725022/the-maniac-by-benjamin-labatut/) about the life and work of John von Neumann. Written in a semi-fictional voice, the book covers everything from his work on the incompleteness theorem with Godel through the impact of his work on recent Nobel Prize winner Demis Hassabis and Lee Sedol's legendary Go match against AlphaGo.
+- **Python 3.13 features:** Python 3.13 was released on 2024-10-08. I [recently wrote](https://www.acviana.com/posts/2024-09-23-weekly-update) about some new (to me) Python features I had missed so I was curious to check out what’s new in this release. I found a nice overview on this [Real Python Podcast episode](https://realpython.com/podcasts/rpp/223/) which includes links to all the relevant feature PEPs.
+- **Inline Functions:** In another call-back to a recent post I was talking about [“taste” in programming](https://www.acviana.com/posts/2024-09-09-weekly-updat<D-s>), which I loosely defined as being something a little more granular than design patterns. This [post on inline functions](http://number-none.com/blow/john_carmack_on_inlined_code.html) from John Carmack (and the associated [Hacker News discussion](https://news.ycombinator.com/item?id=41758371)) on when to be inconsistent is exactly the kind of programming nuance I’ve been thinking about.
+- **The MANIAC:** I’ve been working on this [audiobook](https://www.penguinrandomhouse.com/books/725022/the-maniac-by-benjamin-labatut/) about the life and work of John von Neumann. Written in a semi-fictional voice, the book covers everything from his work on the incompleteness theorem with Godel through the impact of his work on recent Nobel Prize winner Demis Hassabis and Lee Sedol's legendary Go match against AlphaGo. It's a dark, almost creepy, read on technological progress but I'm still enjoying it.
