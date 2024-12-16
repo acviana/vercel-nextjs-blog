@@ -26,7 +26,7 @@ Every time I walk by my setup in the basement, as Marie Kondo would say, it spar
 
 For the new OS I used the 64-bit version of Raspberry OS Lite, which does not include the desktop. Using the Pi-specific disk image etcher from Raspberry Pi you need to enable SSH for remote access and you should pick a non-default a username and password to keep the script kiddies out. From here boot from the new disk image and do the usual software updates with `apt`.
 
-**SSH Access:** If your machine now has a new IP address the SSH manager on your other systems is going to reject the SHH connection because it looks like a man-in-the-middle attack because the host IP has changed from that address you originally white listed. If you don’t know what this means it’s worth a few minutes of reading to help understand some of the networking steps later on.
+**SSH Access:** If your machine now has a new IP address the SSH fingerprint will have changed and your next attempt to SSH will fail. Instead you'll get an error that starts `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED` and contains a warning about a possible [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). If you don’t know what this means it’s worth a few minutes of reading to help understand some of the networking steps later on.
 
 You can fix this SSH issue either by just blowing away the old key with something like this:
 
@@ -34,7 +34,7 @@ You can fix this SSH issue either by just blowing away the old key with somethin
 >  ssh-keygen -R raspberrypi
 ```
 
-or you could also just reassign the old static IP address instead to your system as shown later.
+or you could also just reassign the old static IP address  back to your Pi in your router's admin panel.
 
 **Pi-Hole and PADD:** Now we’ve SSH’ed into the system and we can set up the ad blocker. Both Pi-Hole and PADD install easily with `curl` commands following the instructions in their docs. Next update the `.bashrc` script to run PADD on login using the instructions in the repo `README`. The only remaining step is to configure the Pi to automatically boot into your user which you can do with the `raspi-config` CLI.
 
@@ -42,4 +42,6 @@ or you could also just reassign the old static IP address instead to your system
 
 If DNS and network configuration is new to you, you can ask your friendly local LLM or if you want a deeper dive I highly recommend [Julia Evan's](https://jvns.ca/categories/dns/) wonderful newsletters and zines on how DNS works.
 
-**End Result:** You might have to reboot some combination of the router, Pi, and Pi-Hole to get everything to link up but now you should be surfing the internet with few if any 3rd party ads. Looking at the PADD display I’m usually blocking 10-30% of DNS requests.
+**End Result:** You might have to reboot some combination of the router, Pi, and Pi-Hole to get everything to link up but now you should be surfing the internet with few if any 3rd party ads.
+
+Looking at the PADD display I’m usually blocking 10-30% of DNS requests!
