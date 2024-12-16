@@ -6,11 +6,11 @@ tag: raspberry-pi
 author: acv
 ---
 
-Early in the pandemic, when we were all looking for new hobbies, I got a Raspberry Pi and set it up to run [Pi-Hole](https://pi-hole.net/) as an ad blocker on my home network. In theory, it felt like a nice-to-have, but once you get used to surfing the web without walls of ads on almost every page there’s no going back.
+Early in the pandemic I got a Raspberry Pi and set it up to run [Pi-Hole](https://pi-hole.net/) as an ad blocker on my home network. In theory, it felt like a nice-to-have. But once you get used to surfing the web without walls of ads on almost every page - there’s no going back.
 
-This weekend I decided to update the operating system on the Pi, Raspberry Pi OS (formerly Rasbian). This required a full reinstall and reconfiguration of my setup. As I’ve mentioned before, I really like rebuilding my tools up from scratch because it helps remove old cruft and also forces you to really understand how your systems work.
+This weekend I decided to update the Raspberry Pi OS (formerly Rasbian).operating system on the Pi. Because I was going between major release versions this required a full reinstall and reconfiguration of my setup. But, as I’ve mentioned before, I really like rebuilding my tools up from scratch! It's more work but it helps remove old cruft and forces you to really understand how your systems work.
 
-I took some notes so I wouldn't forget what I was dfoing and in the end I had enough for a quick post. This post is more of a road map, I figured between existing how-to guides, forums, and LLMs you should be able to work through any system-specific issues you run into. Good luck!
+I took some notes so I wouldn't forget what I was doing and in the end I had enough for a quick post. These notes are more of a road map than a detailed guide. I figured between existing how-to guides, forums, and LLMs you should be able to work through any system-specific issues you run into. Good luck!
 
 ---
 
