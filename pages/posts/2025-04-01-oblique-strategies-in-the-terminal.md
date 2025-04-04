@@ -63,4 +63,4 @@ The script defines a function called `print_random_oblique_strategy`, which can 
 
 To get a clean splash page, I needed to do two more things. First, I removed the default _"Welcome to Fish..."_ message by adding `set fish_greeting` (which sets it to nothing) in the `config.fish` file. Finally, macOS displays a _"last login"_ message, which you can silence by running `touch ~/.hushlogin`.
 
-If you enjoy this you might also be interested in my post on [practicing jazz from the command line](pages/posts/2023-12-08-practicing-jazz-with-the-command-line.md). While you're at it, check out this transcendent 6-hour ["time-stretched" version](https://www.youtube.com/watch?v=ZWUlLHv7-64&t=2s) of Eno's _"Music for Airports"_.
+If you enjoy this you might also be interested in my post on [practicing jazz from the command line](/posts/2023-12-08-practicing-jazz-with-the-command-line). While you're at it, check out this transcendent 6-hour ["time-stretched" version](https://www.youtube.com/watch?v=ZWUlLHv7-64&t=2s) of Eno's _"Music for Airports"_.
