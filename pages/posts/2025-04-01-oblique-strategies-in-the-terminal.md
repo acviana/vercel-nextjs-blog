@@ -10,7 +10,7 @@ This post is about a fun little command-line utility I made with ChatGPT's help 
 
 ![Screenshot of terminal with Oblique Strategy](/images/2025-04-01-oblique-strategies-terminal-screenshot.png)
 
-I love seeing one of these every time I open a terminal — it's like a creative spark before doing any work. It recenters me and challenges me to reconsider my techniques and strategies.
+I love seeing one of these every time I open a terminal — it's like a creative spark before doing any work. It recenters me and challenges me to reconsider my assumptions and process.
 
 Here's how I built it. The script is written in Fish shell and works best in terminals with solid Unicode and font rendering support, like Kitty or Alacritty. It reads in the exercises from a source file adapted from [this GitHub repo](https://github.com/joelparkerhenderson/oblique-strategies). Here is the source code:
 
