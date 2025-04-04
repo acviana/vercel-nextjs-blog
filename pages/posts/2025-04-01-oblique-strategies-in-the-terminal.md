@@ -8,7 +8,7 @@ author: acv
 
 This post is about a fun little command-line utility I made with ChatGPT's help to randomly generate exercises from Brian Eno's "[Oblique Strategies](https://en.wikipedia.org/wiki/Oblique_Strategies)" in an aesthetically pleasing presentation. Here’s what it looks like:
 
-![[/public/images/2025-04-01-oblique-strategies-terminal-screenshot.png]]
+![Screenshot of terminal with Oblique Strategy](/images/2025-04-01-oblique-strategies-terminal-screenshot.png)
 
 I love seeing one of these every time I open a terminal — it's like a creative spark before doing any work. It recenters me and challenges me to reconsider my techniques and strategies.
 
