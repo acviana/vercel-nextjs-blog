@@ -1,5 +1,5 @@
 ---
-title: Git Surgery
+title: Verifying Git Branch Histories with Diff, Log, and Blame
 date: 2025-04-29
 description: Rebuilding and checking a git branch
 tag: programming, git
