@@ -60,4 +60,6 @@ After confirming that the file contents were identical and the unwanted commits 
 
 This counts how many lines are attributed to each commit. The cleaned-up branch should show a more diverse history—exactly what we were aiming for.
 
-If you enjoyed this article you should check out this post which touches on [cleaning git history](/posts/2024-09-30-weekly-update.md).
+At this point, I was finally convinced we could replace the `main` branch with this new corrected one.
+
+Thanks for reading, if you enjoyed this article you should check out this post which touches on [cleaning git history](/posts/2024-09-30-weekly-update.md).
